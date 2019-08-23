@@ -12,7 +12,7 @@ print 'Drop tables if they exist<br />'
 cursor.execute('''DROP TABLE IF EXISTS Movie''')
 
 print 'create Player table<br />'
-cursor.execute('''CREATE TABLE Movie
+cursor.execute('''CREATE TABLE Player
                     (StudentID INTEGER PRIMARY KEY,
                     Year INT`,
                     FirstName VARCHAR(20),
