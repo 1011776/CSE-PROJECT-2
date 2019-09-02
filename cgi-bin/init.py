@@ -64,7 +64,7 @@ cursor.execute('''CREATE TABLE Character (
 print 'create CharacterSpell table'
 cursor.execute('''CREATE TABLE CharacterSpell (
         CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-        SpellID         FOREIGN KEY (SpellID)
+        SpellID         FOREIGN KEY (SpellID) REFERENCES Character(SpellID)
         )''')
 
 print 'create Spell table<br />'
@@ -78,7 +78,7 @@ cursor.execute('''CREATE TABLE Spell (
 print 'create CharacterProficiency table<br />'
 cursor.execute('''CREATE TABLE CharacterProficiency
         CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-        ProficiencyID   FOREIGN KEY (ProficiencyID)
+        ProficiencyID   FOREIGN KEY (ProficiencyID) REFERENCES Character(ProficiencyID)
         )''')
 
 print 'create Proficiency table<br />'
