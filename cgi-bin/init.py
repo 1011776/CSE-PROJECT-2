@@ -88,5 +88,19 @@ cursor.execute('''CREATE TABLE Proficiency
         Attribute       VARCHAR(3)
         )''')
 
+print 'create CharacterItem table<br />'
+cursor.execute('''CREATE TABLE Item
+        CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
+        ItemID          FOREIGN KEY (ItemID) REFERENCES Character(ItemID),
+        Quantity        INTEGER
+        )''')
+
+print 'create Item table<br />'
+cursor.execute('''CREATE TABLE Proficiency
+        ItemID          INTEGER PRIMARY KEY,
+        Name            VARCHAR(100),
+        Description     VARCHAR(1000)
+        )''')
+
 conn.commit()
 cursor.close()
