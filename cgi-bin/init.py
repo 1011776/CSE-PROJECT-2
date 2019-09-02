@@ -81,5 +81,12 @@ cursor.execute('''CREATE TABLE CharacterProficiency
         ProficiencyID   FOREIGN KEY (ProficiencyID)
         )''')
 
+print 'create Proficiency table<br />'
+cursor.execute('''CREATE TABLE Proficiency
+        ProficiencyID   INTEGER PRIMARY KEY,
+        Name            VARCHAR(100),
+        Attribute       VARCHAR(3)
+        )''')
+
 conn.commit()
 cursor.close()
