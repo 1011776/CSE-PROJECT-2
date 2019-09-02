@@ -102,5 +102,18 @@ cursor.execute('''CREATE TABLE Proficiency
         Description     VARCHAR(1000)
         )''')
 
+print('create CharacterAbility table<br />')
+cursor.execute('''CREATE TABLE Ability
+        CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
+        AbilityID       FOREIGN KEY (AbilityID) REFERENCES Character(AbilityID)
+        )''')
+
+print('create Ability table<br />')
+cursor.execute('''CREATE TABLE Proficiency
+        AbilityID       INTEGER PRIMARY KEY,
+        Name            VARCHAR(100),
+        Description     VARCHAR(1000)
+        )''')
+
 conn.commit()
 cursor.close()
