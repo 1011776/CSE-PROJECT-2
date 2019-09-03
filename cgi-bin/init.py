@@ -9,9 +9,9 @@ conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
 print('Drop tables if they exist<br />')
-cursor.execute('''DROP TABLE IF EXISTS Student, Campaign, Character
-        , CharacterSpell, Spell, CharacterProficiency, Proficiency
-        , CharacterItem, Item, CharacterAblility, Ability''')
+cursor.execute('''DROP TABLE IF EXISTS Student\, Campaign''')#, Campaign, Character, 
+        #CharacterSpell, Spell, CharacterProficiency, Proficiency, 
+        #CharacterItem, Item, CharacterAblility, Ability''')
 
 print('create Student table<br />')
 cursor.execute('''CREATE TABLE Student (
