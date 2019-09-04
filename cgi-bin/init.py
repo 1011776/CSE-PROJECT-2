@@ -30,7 +30,7 @@ cursor.execute('''CREATE TABLE Student (
 print('create Campaign table<br />')
 cursor.execute('''CREATE TABLE Campaign (
         CampaignID      INTEGER PRIMARY KEY,
-        StudentIDFK     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+        StudentID       FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
         FirstName       VARCHAR(100),
         LastName        VARCHAR(100)
         )''')
