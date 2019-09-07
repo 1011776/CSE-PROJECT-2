@@ -21,23 +21,24 @@ cursor.execute('''DROP TABLE IF EXISTS Ability''')
 
 print('create Student table<br />')
 cursor.execute('''CREATE TABLE Student (
-        StudentID       INTEGER PRIMARY KEY,
-        Year            INT,
+        StudentID       INTEGER PRIMARY KEY AUTOINCREMENT,
+        Year            INTEGER,
         FirstName       VARCHAR(100),
         LastName        VARCHAR(100)
         )''')
 
 print('create Campaign table<br />')
 cursor.execute('''CREATE TABLE Campaign (
-        CampaignID      INTEGER PRIMARY KEY,
-        StudentID       FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+        CampaignID      INTEGER PRIMARY KEY AUTOINCREMENT,
+        StudentID       INTEGER,
+        FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
         FirstName       VARCHAR(100),
         LastName        VARCHAR(100)
         )''')
 
 print('create Character table<br />')
 cursor.execute('''CREATE TABLE Character (
-        CharacterID     INTEGER PRIMARY KEY,
+        CharacterID     INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
         StudentIDFK     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
         CampaignIDFK    FOREIGN KEY (CampaignID) REFERENCES Campaign(CampaignID),
