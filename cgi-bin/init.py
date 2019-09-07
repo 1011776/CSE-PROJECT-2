@@ -8,6 +8,9 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
+print('Enable Foreign Keys<br />')
+cursor.execute('PRAGMA foreign_keys = ON')
+
 print('Drop tables if they exist<br />')
 cursor.execute('''DROP TABLE IF EXISTS Student''')
 cursor.execute('''DROP TABLE IF EXISTS Campaign''')
@@ -19,7 +22,7 @@ cursor.execute('''DROP TABLE IF EXISTS Item''')
 cursor.execute('''DROP TABLE IF EXISTS CharacterAbility''')
 cursor.execute('''DROP TABLE IF EXISTS Ability''')
 
-print('create Student table<br />')
+print('Create Student table<br />')
 cursor.execute('''CREATE TABLE Student (
         StudentID       INTEGER PRIMARY KEY AUTOINCREMENT,
         Year            INTEGER,
@@ -27,16 +30,16 @@ cursor.execute('''CREATE TABLE Student (
         LastName        VARCHAR(100)
         )''')
 
-print('create Campaign table<br />')
+print('Create Campaign table<br />')
 cursor.execute('''CREATE TABLE Campaign (
         CampaignID      INTEGER PRIMARY KEY AUTOINCREMENT,
         StudentID       INTEGER,
-        FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
         FirstName       VARCHAR(100),
-        LastName        VARCHAR(100)
+        LastName        VARCHAR(100),
+        FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
         )''')
 
-print('create Character table<br />')
+print('Create Character table<br />')
 cursor.execute('''CREATE TABLE Character (
         CharacterID     INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
@@ -68,13 +71,13 @@ cursor.execute('''CREATE TABLE Character (
         ChaSave         INTEGER
         )''')
 
-print('create CharacterSpell table')
+print('Create CharacterSpell table')
 cursor.execute('''CREATE TABLE CharacterSpell (
         CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
         SpellID         FOREIGN KEY (SpellID) REFERENCES Character(SpellID)
         )''')
 
-print('create Spell table<br />')
+print('Create Spell table<br />')
 cursor.execute('''CREATE TABLE Spell (
         SpellID         INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
@@ -82,40 +85,40 @@ cursor.execute('''CREATE TABLE Spell (
         Description     VARCHAR(1000)
         )''')
 
-print('create CharacterProficiency table<br />')
+print('Create CharacterProficiency table<br />')
 cursor.execute('''CREATE TABLE CharacterProficiency
         CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
         ProficiencyID   FOREIGN KEY (ProficiencyID) REFERENCES Character(ProficiencyID)
         )''')
 
-print('create Proficiency table<br />')
+print('Create Proficiency table<br />')
 cursor.execute('''CREATE TABLE Proficiency
         ProficiencyID   INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Attribute       VARCHAR(3)
         )''')
 
-print('create CharacterItem table<br />')
+print('Create CharacterItem table<br />')
 cursor.execute('''CREATE TABLE Item
         CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
         ItemID          FOREIGN KEY (ItemID) REFERENCES Character(ItemID),
         Quantity        INTEGER
         )''')
 
-print('create Item table<br />')
+print('Create Item table<br />')
 cursor.execute('''CREATE TABLE Proficiency
         ItemID          INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Description     VARCHAR(1000)
         )''')
 
-print('create CharacterAbility table<br />')
+print('Create CharacterAbility table<br />')
 cursor.execute('''CREATE TABLE Ability
         CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
         AbilityID       FOREIGN KEY (AbilityID) REFERENCES Character(AbilityID)
         )''')
 
-print('create Ability table<br />')
+print('Create Ability table<br />')
 cursor.execute('''CREATE TABLE Proficiency
         AbilityID       INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
