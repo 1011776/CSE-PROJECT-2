@@ -8,10 +8,10 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('Enable Foreign Keys<br/>')
+print('Enable foreign keys<br>')
 cursor.execute('PRAGMA foreign_keys = ON')
 
-print('Drop tables if they exist<br/>')
+print('Drop tables if they exist<br>')
 cursor.execute('''DROP TABLE IF EXISTS Student''')
 cursor.execute('''DROP TABLE IF EXISTS Campaign''')
 cursor.execute('''DROP TABLE IF EXISTS Character''')
@@ -24,7 +24,7 @@ cursor.execute('''DROP TABLE IF EXISTS Item''')
 cursor.execute('''DROP TABLE IF EXISTS CharacterAbility''')
 cursor.execute('''DROP TABLE IF EXISTS Ability''')
 
-print('Create Student table<br/>')
+print('Create Student table<br>')
 cursor.execute('''CREATE TABLE Student (
         StudentID       INTEGER PRIMARY KEY AUTOINCREMENT,
         Year            INTEGER,
@@ -32,7 +32,7 @@ cursor.execute('''CREATE TABLE Student (
         LastName        VARCHAR(100)
         )''')
 
-print('Create Campaign table<br/>')
+print('Create Campaign table<br>')
 cursor.execute('''CREATE TABLE Campaign (
         CampaignID      INTEGER PRIMARY KEY AUTOINCREMENT,
         StudentIDFK     INTEGER,
@@ -41,7 +41,7 @@ cursor.execute('''CREATE TABLE Campaign (
         FOREIGN KEY (StudentIDFK) REFERENCES Student(StudentID)
         )''')
 
-print('Create Character table<br/>')
+print('Create Character table<br>')
 cursor.execute('''CREATE TABLE Character (
         CharacterID     INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
@@ -75,7 +75,7 @@ cursor.execute('''CREATE TABLE Character (
         FOREIGN KEY (CampaignIDFK) REFERENCES Campaign(CampaignID)
         )''')
 
-print('Create CharacterSpell table<br/>')
+print('Create CharacterSpell table<br>')
 cursor.execute('''CREATE TABLE CharacterSpell (
         CharacterIDFK   INTEGER,
         SpellIDFK       INTEGER,
@@ -83,7 +83,7 @@ cursor.execute('''CREATE TABLE CharacterSpell (
         FOREIGN KEY (SpellIDFK) REFERENCES Spell(SpellID)
         )''')
 
-print('Create Spell table<br/>')
+print('Create Spell table<br>')
 cursor.execute('''CREATE TABLE Spell (
         SpellID         INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
@@ -91,7 +91,7 @@ cursor.execute('''CREATE TABLE Spell (
         Description     VARCHAR(1000)
         )''')
 
-print('Create CharacterProficiency table<br/>')
+print('Create CharacterProficiency table<br>')
 cursor.execute('''CREATE TABLE CharacterProficiency (
         CharacterIDFK   INTEGER,
         ProficiencyIDFK INTEGER,
@@ -99,14 +99,14 @@ cursor.execute('''CREATE TABLE CharacterProficiency (
         FOREIGN KEY (ProficiencyIDFK) REFERENCES Character(ProficiencyID)
         )''')
 
-print('Create Proficiency table<br/>')
+print('Create Proficiency table<br>')
 cursor.execute('''CREATE TABLE Proficiency (
         ProficiencyID   INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
         Attribute       VARCHAR(3)
         )''')
 
-print('Create CharacterItem table<br/>')
+print('Create CharacterItem table<br>')
 cursor.execute('''CREATE TABLE CharacterItem (
         CharacterIDFK   INTEGER,
         ItemIDFK        INTEGER,
@@ -115,21 +115,21 @@ cursor.execute('''CREATE TABLE CharacterItem (
         FOREIGN KEY (ItemIDFK) REFERENCES Item(ItemID)
         )''')
 
-print('Create Item table<br/>')
+print('Create Item table<br>')
 cursor.execute('''CREATE TABLE Item (
         ItemID          INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Description     VARCHAR(1000)
         )''')
 
-print('Create Ability table...<br/>')
+print('Create Ability table...<br>')
 cursor.execute('''CREATE TABLE Ability (
         AbilityID       INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Description     VARCHAR(1000)
         )''')
 
-print('Create CharacterAbility table...<br/>')
+print('Create CharacterAbility table...<br>')
 cursor.execute('''CREATE TABLE CharacterAbility (
         CharacterIDFK   INTEGER,
         AbilityIDFK     INTEGER,
@@ -138,9 +138,8 @@ cursor.execute('''CREATE TABLE CharacterAbility (
         )''')
 
 print('<br/>')
-
-print('<a href="cgi-bin/sampleData.py">Insert sample data</a>')
-print('<a href="index.html">Return to home page</a>')
+print('<a href="sampleData.py">Insert sample data</a><br>')
+print('<a href="../index.html">Return to homepage</a><br>')
 
 conn.commit()
 cursor.close()
