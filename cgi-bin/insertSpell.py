@@ -16,6 +16,6 @@ description = form.getvalue('description')
 values = { "name": name, "level": level, "description": description }
 
 cursor.execute('''
-        INSERT INTO Spell (name, level, description) 
+        INSERT INTO Spell (Name, Level, Description) 
         VALUES (:name, :level, :description)
         ''', values)
