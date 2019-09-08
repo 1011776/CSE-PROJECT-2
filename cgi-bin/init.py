@@ -137,5 +137,7 @@ cursor.execute('''CREATE TABLE CharacterAbility (
         FOREIGN KEY (AbilityIDFK) REFERENCES Character(AbilityID)
         )''')
 
+print('Create CharacterAbility table<br />')
+
 conn.commit()
 cursor.close()
