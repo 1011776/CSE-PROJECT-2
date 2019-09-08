@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-    
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<body>
-	<h2>Insert Spell Form:</h2>
-	<form name="input" action="cgi-bin/insertSpell.py">
-		Name: <input type="text" name="name" required/><br />
-    		<p>Level: <input type="number" name="level" min="0" max="9" required/></p>
-    		<p>Description: <input type="text" name="description" required/><br /></p>
-		<p><input type="submit" value="Submit"></p>
-	</form>
-	<li><a href="index.html">Return to home page</a></li>	
-</body>
+	<body>
+		<h2>D&D Database</h2>
+		<h3>Insert a Spell</h3>
+		<form name="input" action="cgi-bin/insertSpell.py">
+			Name:<br>
+			<input type="text" name="name" required><br>
+			Level:<br>
+			<input type="number" name="level" min="0" max="9" required><br>
+			Description:<br>
+			<textarea rows="4", cols="50" name="description" required></textarea><br>
+			<input type="submit" value="Submit"><br>
+		</form>
+		<br>
+		<a href="index.html">Return to homepage</a><br>	
+	</body>
 </html>
