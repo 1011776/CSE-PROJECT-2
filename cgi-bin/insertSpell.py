@@ -16,6 +16,6 @@ description = form.getvalue('description')
 values = { "name": name, "level": level, "description": description }
 
 cursor.execute('''
-        INSERT INTO Player (username, no_of_achievements, lunar_coins) 
-        VALUES (:username, :achievements, :lunar)
+        INSERT INTO Spell (name, level, description) 
+        VALUES (:name, :level, :description)
         ''', values)
