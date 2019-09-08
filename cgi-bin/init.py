@@ -15,6 +15,8 @@ print('Drop tables if they exist<br />')
 cursor.execute('''DROP TABLE IF EXISTS Student''')
 cursor.execute('''DROP TABLE IF EXISTS Campaign''')
 cursor.execute('''DROP TABLE IF EXISTS Character''')
+cursor.execute('''DROP TABLE IF EXISTS CharacterSpell''')
+cursor.execute('''DROP TABLE IF EXISTS Spell''')
 cursor.execute('''DROP TABLE IF EXISTS CharacterProficiency''')
 cursor.execute('''DROP TABLE IF EXISTS Proficiency''')
 cursor.execute('''DROP TABLE IF EXISTS CharacterItem''')
@@ -33,18 +35,18 @@ cursor.execute('''CREATE TABLE Student (
 print('Create Campaign table<br />')
 cursor.execute('''CREATE TABLE Campaign (
         CampaignID      INTEGER PRIMARY KEY AUTOINCREMENT,
-        StudentID       INTEGER,
+        StudentIDFK     INTEGER,
         FirstName       VARCHAR(100),
         LastName        VARCHAR(100),
-        FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
+        FOREIGN KEY (StudentIDFK) REFERENCES Student(StudentID)
         )''')
 
 print('Create Character table<br />')
 cursor.execute('''CREATE TABLE Character (
         CharacterID     INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
-        StudentIDFK     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
-        CampaignIDFK    FOREIGN KEY (CampaignID) REFERENCES Campaign(CampaignID),
+        StudentIDFK     INTEGER,
+        CampaignIDFK    INTEGER,
         Class           VARCHAR(100),
         Background      VARCHAR(100),
         Race            VARCHAR(100),
@@ -68,13 +70,17 @@ cursor.execute('''CREATE TABLE Character (
         Charisma        INTEGER,
         StrSave         INTEGER,
         WisSave         INTEGER,
-        ChaSave         INTEGER
+        ChaSave         INTEGER,
+        FOREIGN KEY (StudentIDFK) REFERENCES Student(StudentID),
+        FOREIGN KEY (CampaignIDFK) REFERENCES Campaign(CampaignID)
         )''')
 
-print('Create CharacterSpell table')
+print('Create CharacterSpell table<br />')
 cursor.execute('''CREATE TABLE CharacterSpell (
-        CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-        SpellID         FOREIGN KEY (SpellID) REFERENCES Character(SpellID)
+        CharacterIDFK   INTEGER,
+        SpellIDFK       INTEGER,
+        FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
+        FOREIGN KEY (SpellIDFK) REFERENCES Spell(SpellID)
         )''')
 
 print('Create Spell table<br />')
@@ -86,43 +92,49 @@ cursor.execute('''CREATE TABLE Spell (
         )''')
 
 print('Create CharacterProficiency table<br />')
-cursor.execute('''CREATE TABLE CharacterProficiency
-        CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-        ProficiencyID   FOREIGN KEY (ProficiencyID) REFERENCES Character(ProficiencyID)
+cursor.execute('''CREATE TABLE CharacterProficiency (
+        CharacterIDFK   INTEGER,
+        ProficiencyIDFK INTEGER,
+        FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
+        FOREIGN KEY (ProficiencyIDFK) REFERENCES Character(ProficiencyID)
         )''')
 
 print('Create Proficiency table<br />')
-cursor.execute('''CREATE TABLE Proficiency
-        ProficiencyID   INTEGER PRIMARY KEY,
+cursor.execute('''CREATE TABLE Proficiency (
+        ProficiencyID   INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
         Attribute       VARCHAR(3)
         )''')
 
 print('Create CharacterItem table<br />')
-cursor.execute('''CREATE TABLE Item
-        CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-        ItemID          FOREIGN KEY (ItemID) REFERENCES Character(ItemID),
-        Quantity        INTEGER
+cursor.execute('''CREATE TABLE CharacterItem (
+        CharacterIDFK   INTEGER,
+        ItemIDFK        INTEGER,
+        Quantity        INTEGER,
+        FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
+        FOREIGN KEY (ItemIDFK) REFERENCES Item(ItemID)
         )''')
 
 print('Create Item table<br />')
-cursor.execute('''CREATE TABLE Proficiency
+cursor.execute('''CREATE TABLE Item (
         ItemID          INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Description     VARCHAR(1000)
         )''')
 
-print('Create CharacterAbility table<br />')
-cursor.execute('''CREATE TABLE Ability
-        CharacterID     FOREIGN KEY (CharacterID) REFERENCES Character(CharacterID),
-        AbilityID       FOREIGN KEY (AbilityID) REFERENCES Character(AbilityID)
-        )''')
-
 print('Create Ability table<br />')
-cursor.execute('''CREATE TABLE Proficiency
+cursor.execute('''CREATE TABLE Ability (
         AbilityID       INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Description     VARCHAR(1000)
+        )''')
+
+print('Create CharacterAbility table<br />')
+cursor.execute('''CREATE TABLE CharacterAbility (
+        CharacterIDFK   INTEGER,
+        AbilityIDFK     INTEGER,
+        FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
+        FOREIGN KEY (AbilityIDFK) REFERENCES Character(AbilityID)
         )''')
 
 conn.commit()
