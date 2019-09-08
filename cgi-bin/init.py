@@ -138,6 +138,5 @@ cursor.execute('''CREATE TABLE CharacterAbility (
         )''')
 
 print('Create CharacterAbility table<br />')
-
 conn.commit()
 cursor.close()
