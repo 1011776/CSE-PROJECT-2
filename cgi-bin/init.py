@@ -43,7 +43,7 @@ cursor.execute('''CREATE TABLE Campaign (
 
 print('Create Character table<br>')
 cursor.execute('''CREATE TABLE Character (
-        CharacterID     INTEGER PRIMARY KEY AUTOINCREMENT,
+        CharacterID     INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         StudentIDFK     INTEGER,
         CampaignIDFK    INTEGER,
@@ -138,7 +138,7 @@ cursor.execute('''CREATE TABLE CharacterAbility (
         )''')
 
 print('<br/>')
-print('<a href="sampleData.py">Insert sample data</a><br>')
+print('<a href="insertSampleData.py">Insert sample data</a><br>')
 print('<a href="../index.html">Return to homepage</a><br>')
 
 conn.commit()
