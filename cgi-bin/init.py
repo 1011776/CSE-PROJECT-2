@@ -8,7 +8,8 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<head><title>D&D Database: Initialise database</title></head>')
+print('<title>D&D Database: Initialise database</title>')
+print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h2>D&D Database</h2>')
 print('<h3>Initialise database</h3>')
