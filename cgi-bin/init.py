@@ -8,6 +8,9 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
+print('<h2>D&D Database</h2>')
+print('<h3>Initialise database</h3>')
+
 print('Enable foreign keys<br>')
 cursor.execute('PRAGMA foreign_keys = ON')
 
@@ -122,20 +125,23 @@ cursor.execute('''CREATE TABLE Item (
         Description     VARCHAR(1000)
         )''')
 
-print('Create Ability table...<br>')
+print('Create Ability table<br>')
 cursor.execute('''CREATE TABLE Ability (
         AbilityID       INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Description     VARCHAR(1000)
         )''')
 
-print('Create CharacterAbility table...<br>')
+print('Create CharacterAbility table<br>')
 cursor.execute('''CREATE TABLE CharacterAbility (
         CharacterIDFK   INTEGER,
         AbilityIDFK     INTEGER,
         FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
         FOREIGN KEY (AbilityIDFK) REFERENCES Character(AbilityID)
         )''')
+
+print('<br/>')
+print('Table creation complete<br>')
 
 print('<br/>')
 print('<a href="insertSampleData.py">Insert sample data</a><br>')
