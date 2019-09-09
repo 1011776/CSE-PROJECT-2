@@ -11,8 +11,8 @@ cursor = conn.cursor()
 print('<title>D&D Database: Initialise database</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
-print('<h2>D&D Database</h2>')
-print('<h3>Initialise database</h3>')
+print('<h1>D&D Database</h1>')
+print('<h2>Initialise database</h2>')
 
 print('Enable foreign keys<br>')
 cursor.execute('PRAGMA foreign_keys = ON')

@@ -16,7 +16,6 @@ print('<link rel="stylesheet" href="../stylesheet.css">')
 print('<h2>D&D Database</h2>')
 print('<h3>Insert a spell</h3>')
 
-print('Insert spell<br>')
 form = cgi.FieldStorage()
 name = form.getvalue('name')
 level = form.getvalue('level')
@@ -29,9 +28,9 @@ cursor.execute('''
         VALUES (:name, :level, :description)
         ''', values)
 
-print('<br>')
 print('Insertion completed<br>')
 print('<br>')
+print('<a href="../insertSpell.html">Insert another spell</a><br>')
 print('<a href="../index.html">Return to homepage</a><br>')
 
 conn.commit()
