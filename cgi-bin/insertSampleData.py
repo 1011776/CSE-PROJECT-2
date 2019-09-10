@@ -409,3 +409,6 @@ print('<br/>')
 print('Data insertion complete<br>')
 print('<br/>')
 print('<a href="../index.html">Return to homepage</a><br>')
+
+conn.commit()
+cursor.close()
