@@ -15,36 +15,39 @@ print('<h1>D&D Database</h1>')
 print('<h2>Insert sample data</h2>')
 
 print('Insert sample students<br>')
-cursor.execute('''INSERT INTO Student (StudentID, FirstName, LastName, Year) VALUES 
-(1038387,   "Caleb",    "Miles",    5),
-(1028983,   "Daquan",   "Lopez",    6),
-(1088611,   "Caldwell", "Santos",   12),
-(1031582,   "Burke",    "Luna",     6),
-(1011033,   "Brady",    "Landry",   5),
-(1072548,   "Allen",    "Dennis",   6),
-(1007463,   "Elton",    "Hall",     6),
-(1082808,   "Plato",    "Simpson",  5),
-(1082129,   "Julian",   "Butler",   9),
-(1000607,   "Lawrence", "Warner",   11),
-(1005740,   "Lev",      "Morin",    9),
-(1051459,   "Brian",    "Hubbard",  5),
-(1075728,   "Reece",    "Puckett",  5),
-(1001326,   "Bruno",    "Newton",   9),
-(1021386,   "Lucian",   "Leblanc",  9),
-(1070109,   "Trevor",   "Martin",   7),
-(1058865,   "Alfonso",  "Blackburn",8),
-(1043641,   "Garrison", "Steele",   7),
-(1018937,   "Hamilton", "West",     5),
-(1055321,   "Elijah",   "Roth",     5)''')
+cursor.execute('''
+        INSERT INTO Student (StudentID, FirstName, LastName, Year) VALUES 
+        (1038387,   "Caleb",    "Miles",    5),
+        (1028983,   "Daquan",   "Lopez",    6),
+        (1088611,   "Caldwell", "Santos",   12),
+        (1031582,   "Burke",    "Luna",     6),
+        (1011033,   "Brady",    "Landry",   5),
+        (1072548,   "Allen",    "Dennis",   6),
+        (1007463,   "Elton",    "Hall",     6),
+        (1082808,   "Plato",    "Simpson",  5),
+        (1082129,   "Julian",   "Butler",   9),
+        (1000607,   "Lawrence", "Warner",   11),
+        (1005740,   "Lev",      "Morin",    9),
+        (1051459,   "Brian",    "Hubbard",  5),
+        (1075728,   "Reece",    "Puckett",  5),
+        (1001326,   "Bruno",    "Newton",   9),
+        (1021386,   "Lucian",   "Leblanc",  9),
+        (1070109,   "Trevor",   "Martin",   7),
+        (1058865,   "Alfonso",  "Blackburn",8),
+        (1043641,   "Garrison", "Steele",   7),
+        (1018937,   "Hamilton", "West",     5),
+        (1055321,   "Elijah",   "Roth",     5)
+        ''')
 
 print('Insert sample campaigns<br>')
-cursor.execute('''INSERT INTO Campaign (StudentIDFK, CampaignName) VALUES
+cursor.execute('''
+        INSERT INTO Campaign (StudentIDFK, CampaignName) VALUES
         ("Lost Mine of Phandelver", 1038387),
         ("Hoard of the Dragon Queen", 1028983),
         ("The Rise of Tiamat", 1088611),
         ("Princes of the Apocalypse", 1082129),
-        ("Out of the Abyss", 1000607)''')
-
+        ("Out of the Abyss", 1000607)
+        ''')
 
 print('Insert sample spells<br>')
 cursor.execute('''
@@ -288,7 +291,97 @@ cursor.execute('''
         Dispel Magic. Spells and magical effects such as 
         dispel magic have no effect on the sphere. Likewise, 
         the spheres created by different antimagic field 
-        spells don’t nullify each other.')''')
+        spells don’t nullify each other.')
+        ''')
+
+print('Insert sample items<br>')
+cursor.execute('''INSERT INTO Item (Name, Description) VALUES
+        ("Acid",
+        'As an action, you can splash the contents of 
+        this vial onto a creature within 5 feet of you or throw 
+        the vial up to 20 feet, shattering it on impact. In 
+        either case, make a ranged attack against a creature 
+        or object, treating the acid as an improvised weapon. 
+        On a hit, the target takes 2d6 acid damage.'),
+
+        ("Alchemist’s Fire",
+        'This sticky, adhesive fluid ignites 
+        when exposed to air. As an action, you can throw this 
+        flask up to 20 feet, shattering it on impact. Make a 
+        ranged attack against a creature or object, treating 
+        the alchemist’s fire as an improvised weapon. On a 
+        hit, the target takes ld4 fire damage at the start of 
+        each of its turns. A creature can end this damage by 
+        using its action to make a DC 10 Dexterity check to 
+        extinguish the flames.'),
+
+        ("Antitoxin",
+        'A creature that drinks this vial of liquid 
+        gains advantage on saving throws against poison for 
+        1 hour. It confers no benefit to undead or constructs.'),
+
+        ("Arcane Focus",
+        'An arcane focus is a special item — 
+        an orb, a crystal, a rod, a specially constructed staff, a 
+        wand-like length of wood, or some similar item — 
+        designed to channel the power of arcane spells. A
+        sorcerer, warlock, or wizard can use such an item as 
+        a spellcasting focus.'),
+
+        ("Ball Bearings",
+        'As an action, you can spill these 
+        tiny metal balls from their pouch to cover a level, 
+        square area that is 10 feet on a side. A creature 
+        moving across the covered area must succeed on a 
+        DC 10 Dexterity saving throw or fall prone. A 
+        creature moving through the area at half speed 
+        doesn’t need to make the save.'),
+
+        ("Block and Tackle",
+        'A set of pulleys with a cable 
+        threaded through them and a hook to attach to 
+        objects, a block and tackle allows you to hoist up to 
+        four times the weight you can normally lift.'),
+
+        ("Book",
+        'A book might contain poetry, historical 
+        accounts, information pertaining to a particular field 
+        of lore, diagrams and notes on gnomish contraptions, 
+        or just about anything else that can be represented 
+        using text or pictures. A book of spells is a spellbook.'),
+
+        ("Caltrops",
+        'As an action, you can spread a bag of 
+        caltrops to cover a square area that is 5 feet on a side. 
+        Any creature that enters the area must succeed on a 
+        DC 15 Dexterity saving throw or stop moving this 
+        turn and take 1 piercing damage. Taking this damage 
+        reduces the creature’s walking speed by 10 feet until 
+        the creature regains at least 1 hit point. A creature 
+        moving through the area at half speed doesn’t need 
+        to make the save.'),
+
+        ("Candle",
+        'For 1 hour, a candle sheds bright light in a 
+        5-foot radius and dim light for an additional 5 feet.'),
+
+        ("Case, Crossbow Bolt",
+        'This wooden case can hold 
+        up to twenty crossbow bolts.')''')
+
+print('Insert sample abilities<br>')
+cursor.execute('''INSERT INTO Ability (Name, Description) VALUES
+        ("Grappler",
+        'You’ve developed the skills necessary to hold your 
+        own in close-quarters grappling. You gain the 
+        following benefits:\n
+        • You have advantage on attack rolls against a 
+        creature you are grappling.\n
+        • You can use your action to try to pin a creature 
+        grappled by you. To do so, make another grapple 
+        check. If you succeed, you and the creature are 
+        both restrained until the grapple ends.')''')
+
 
 print('<br/>')
 print('Data insertion complete<br>')
