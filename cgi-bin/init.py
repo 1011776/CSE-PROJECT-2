@@ -60,7 +60,7 @@ cursor.execute('''
         Race            VARCHAR(100),
         Alignment       VARCHAR(100),
         ExpPoints       INTEGER,
-        Inspiration     INTEGER
+        Inspiration     INTEGER,
         ProfBonus       INTEGER,
         Gold            INTEGER,
         HitPointMax     INTEGER,
