@@ -95,7 +95,7 @@ cursor.execute('''
 print('Create Spell table<br>')
 cursor.execute('''
         CREATE TABLE Spell (
-        SpellID         INTEGER PRIMARY KEY,
+        SpellID         INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
         Level           INTEGER,
         Description     VARCHAR(10000)
