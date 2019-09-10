@@ -51,6 +51,26 @@ INSERT INTO Campaign (StudentIDFK, CampaignName) VALUES
 ("Out of the Abyss", 1000607)
 ''')
 
+print('Insert sample characters<br>')
+cursor.execute('''
+INSERT INTO Character (Name, StudentIDFK, CampaignIDFK, Class, Background, 
+Race, Alignment, ExpPoints, Inspiration, ProfBonus, Gold, HitPointMax, 
+Ptraits, Ideals, Bonds, Flaws, OtherInfo, Strength, Dexterity, Constitution,
+Intellegence, Wisdom, Charisma, StrSave, DexSave, ConSave, IntSave, WisSave, 
+ChaSave) VALUES 
+("Angelica Ashley", 1, 3, "Warlock", "Beast Hunter", "Human", 
+"Lawful Neutral", 185223, 0, 3, "convallis est, vitae sodales nisi magna sed 
+dui. Fusce", 197, "imperdiet dictum magna. Ut tincidunt orci quis lectus. 
+Nullam suscipit, est ac", "Nulla tempor augue ac ipsum. Phasellus vitae 
+mauris sit amet lorem semper auctor. Mauris vel turpis.", "eleifend. Cras sed 
+leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, 
+pellentesque a, facilisis non, bibendum sed,", "vitae velit egestas lacinia. 
+Sed congue, elit sed consequat auctor, nunc nulla vulputate", "dictum mi, ac 
+mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, 
+porttitor vulputate, posuere vulputate, lacus.", 8, 15, 13, 17, 16, 9, 1, 0, 
+1, 1, 0, 1)
+''')
+
 print('Insert sample spells<br>')
 cursor.execute('''
 INSERT INTO Spell (Name, Level, Description) VALUES 
