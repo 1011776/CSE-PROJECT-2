@@ -8,18 +8,15 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<head>')
 print('<title>D&D Database: Initialise database</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
-print('</head>')
 
 print('<h1>D&D Database</h1>')
 print('<h2>Insert sample data</h2>')
 
 print('Insert sample students<br>')
-
-cursor.execute('''INSERT INTO Student (`StudentID`,`FirstName`,`LastName`,`Year`)
-VALUES (1038387,"Caleb","Miles",    5),
+cursor.execute('''INSERT INTO Student (StudentID, FirstName, LastName, Year) VALUES 
+(1038387,   "Caleb",    "Miles",    5),
 (1028983,   "Daquan",   "Lopez",    6),
 (1088611,   "Caldwell", "Santos",   12),
 (1031582,   "Burke",    "Luna",     6),
@@ -28,7 +25,7 @@ VALUES (1038387,"Caleb","Miles",    5),
 (1007463,   "Elton",    "Hall",     6),
 (1082808,   "Plato",    "Simpson",  5),
 (1082129,   "Julian",   "Butler",   9),
-(1000607,   "Lawrence", "Warner",   11);
+(1000607,   "Lawrence", "Warner",   11),
 (1005740,   "Lev",      "Morin",    9),
 (1051459,   "Brian",    "Hubbard",  5),
 (1075728,   "Reece",    "Puckett",  5),
@@ -38,12 +35,21 @@ VALUES (1038387,"Caleb","Miles",    5),
 (1058865,   "Alfonso",  "Blackburn",8),
 (1043641,   "Garrison", "Steele",   7),
 (1018937,   "Hamilton", "West",     5),
-(1055321,   "Elijah",   "Roth",     5);
-''')
+(1055321,   "Elijah",   "Roth",     5)''')
+
+print('Insert sample campaigns<br>')
+cursor.execute('''INSERT INTO Campaign (StudentIDFK, CampaignName) VALUES
+        ("Lost Mine of Phandelver", 1038387),
+        ("Hoard of the Dragon Queen", 1028983),
+        ("The Rise of Tiamat", 1088611),
+        ("Princes of the Apocalypse", 1082129),
+        ("Out of the Abyss", 1000607)''')
+
 
 print('Insert sample spells<br>')
-cursor.execute('''INSERT INTO Spell (Name, Level, Description)
-        VALUES ("Acid Arrow", 2,
+cursor.execute('''
+        INSERT INTO Spell (Name, Level, Description) VALUES 
+        ("Acid Arrow", 2,
         'A shimmering green arrow streaks toward a target 
         within range and bursts in a spray of acid. Make a 
         ranged spell attack against the target. On a hit, the 
