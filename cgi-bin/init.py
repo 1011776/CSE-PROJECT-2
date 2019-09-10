@@ -31,7 +31,8 @@ cursor.execute('''DROP TABLE IF EXISTS CharacterAbility''')
 cursor.execute('''DROP TABLE IF EXISTS Ability''')
 
 print('Create Student table<br>')
-cursor.execute('''CREATE TABLE Student (
+cursor.execute('''
+        CREATE TABLE Student (
         StudentID       INTEGER PRIMARY KEY AUTOINCREMENT,
         Year            INTEGER,
         FirstName       VARCHAR(100),
@@ -39,7 +40,8 @@ cursor.execute('''CREATE TABLE Student (
         )''')
 
 print('Create Campaign table<br>')
-cursor.execute('''CREATE TABLE Campaign (
+cursor.execute('''
+        CREATE TABLE Campaign (
         CampaignID      INTEGER PRIMARY KEY AUTOINCREMENT,
         StudentIDFK     INTEGER,
         CampaignName    VARCHAR(100),
@@ -47,7 +49,8 @@ cursor.execute('''CREATE TABLE Campaign (
         )''')
 
 print('Create Character table<br>')
-cursor.execute('''CREATE TABLE Character (
+cursor.execute('''
+        CREATE TABLE Character (
         CharacterID     INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         StudentIDFK     INTEGER,
@@ -81,7 +84,8 @@ cursor.execute('''CREATE TABLE Character (
         )''')
 
 print('Create CharacterSpell table<br>')
-cursor.execute('''CREATE TABLE CharacterSpell (
+cursor.execute('''
+        CREATE TABLE CharacterSpell (
         CharacterIDFK   INTEGER,
         SpellIDFK       INTEGER,
         FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
@@ -89,7 +93,8 @@ cursor.execute('''CREATE TABLE CharacterSpell (
         )''')
 
 print('Create Spell table<br>')
-cursor.execute('''CREATE TABLE Spell (
+cursor.execute('''
+        CREATE TABLE Spell (
         SpellID         INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Level           INTEGER,
@@ -97,7 +102,8 @@ cursor.execute('''CREATE TABLE Spell (
         )''')
 
 print('Create CharacterProficiency table<br>')
-cursor.execute('''CREATE TABLE CharacterProficiency (
+cursor.execute('''
+        CREATE TABLE CharacterProficiency (
         CharacterIDFK   INTEGER,
         ProficiencyIDFK INTEGER,
         FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
@@ -105,14 +111,16 @@ cursor.execute('''CREATE TABLE CharacterProficiency (
         )''')
 
 print('Create Proficiency table<br>')
-cursor.execute('''CREATE TABLE Proficiency (
+cursor.execute('''
+        CREATE TABLE Proficiency (
         ProficiencyID   INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
         Attribute       VARCHAR(3)
         )''')
 
 print('Create CharacterItem table<br>')
-cursor.execute('''CREATE TABLE CharacterItem (
+cursor.execute('''
+        CREATE TABLE CharacterItem (
         CharacterIDFK   INTEGER,
         ItemIDFK        INTEGER,
         Quantity        INTEGER,
@@ -121,25 +129,28 @@ cursor.execute('''CREATE TABLE CharacterItem (
         )''')
 
 print('Create Item table<br>')
-cursor.execute('''CREATE TABLE Item (
-        ItemID          INTEGER PRIMARY KEY,
-        Name            VARCHAR(100),
-        Description     VARCHAR(10000)
-        )''')
-
-print('Create Ability table<br>')
-cursor.execute('''CREATE TABLE Ability (
-        AbilityID       INTEGER PRIMARY KEY,
+cursor.execute('''
+        CREATE TABLE Item (
+        ItemID          INTEGER PRIMARY KEY AUTOINCREMENT,
         Name            VARCHAR(100),
         Description     VARCHAR(10000)
         )''')
 
 print('Create CharacterAbility table<br>')
-cursor.execute('''CREATE TABLE CharacterAbility (
+cursor.execute('''
+        CREATE TABLE CharacterAbility (
         CharacterIDFK   INTEGER,
         AbilityIDFK     INTEGER,
         FOREIGN KEY (CharacterIDFK) REFERENCES Character(CharacterID),
         FOREIGN KEY (AbilityIDFK) REFERENCES Character(AbilityID)
+        )''')
+
+print('Create Ability table<br>')
+cursor.execute('''
+        CREATE TABLE Ability (
+        AbilityID       INTEGER PRIMARY KEY AUTOINCREMENT,
+        Name            VARCHAR(100),
+        Description     VARCHAR(10000)
         )''')
 
 print('<br/>')
