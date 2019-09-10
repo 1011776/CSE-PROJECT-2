@@ -295,6 +295,28 @@ cursor.execute('''
         ''')
 
 print('Insert sample items<br>')
+cursor.execute('''INSERT INTO Proficiency (Name, Attribute) VALUES
+        ("Acrobatics",      "Dex"),
+        ("Animal Handling", "Wis"),
+        ("Arcana",          "Int"),
+        ("Athletics",       "Str"),
+        ("Deception",       "Cha"),
+        (History"",         "Int"),
+        ("Insight",         "Wis"),
+        ("Intimidation",    "Cha"),
+        ("Investigation",   "Int"),
+        ("Medicine",        "Wis"),
+        ("Nature",          "Int"),
+        ("Perception",      "Wis"),
+        ("Performance",     "Cha"),
+        ("Persuasion",      "Cha"),
+        ("Religion",        "Int"),
+        ("Sleight of Hand", "Dex"),
+        ("Stealth",         "Dex"),
+        ("Survival",        "Wis")
+''')
+
+print('Insert sample items<br>')
 cursor.execute('''INSERT INTO Item (Name, Description) VALUES
         ("Acid",
         'As an action, you can splash the contents of 
