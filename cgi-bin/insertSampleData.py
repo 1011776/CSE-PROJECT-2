@@ -59,16 +59,104 @@ Ptraits, Ideals, Bonds, Flaws, OtherInfo, Strength, Dexterity, Constitution,
 Intellegence, Wisdom, Charisma, StrSave, DexSave, ConSave, IntSave, WisSave, 
 ChaSave) VALUES 
 ("Angelica Ashley", 1, 3, "Warlock", "Beast Hunter", "Human", 
-"Lawful Neutral", 185223, 0, 3, "convallis est, vitae sodales nisi magna sed 
-dui. Fusce", 197, "imperdiet dictum magna. Ut tincidunt orci quis lectus. 
-Nullam suscipit, est ac", "Nulla tempor augue ac ipsum. Phasellus vitae 
-mauris sit amet lorem semper auctor. Mauris vel turpis.", "eleifend. Cras sed 
-leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, 
-pellentesque a, facilisis non, bibendum sed,", "vitae velit egestas lacinia. 
-Sed congue, elit sed consequat auctor, nunc nulla vulputate", "dictum mi, ac 
-mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, 
-porttitor vulputate, posuere vulputate, lacus.", 8, 15, 13, 17, 16, 9, 1, 0, 
-1, 1, 0, 1)
+"Lawful Neutral", 185223, 0, 3, 147, 197, "imperdiet dictum magna. Ut 
+tincidunt orci quis lectus. Nullam suscipit, est ac", "Nulla tempor augue ac 
+ipsum. Phasellus vitae mauris sit amet lorem semper auctor. Mauris vel 
+turpis.", "eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in 
+magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed,", 
+"vitae velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc 
+nulla vulputate", "dictum mi, ac mattis velit justo nec ante. Maecenas mi 
+felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus.", 
+8, 15, 13, 17, 16, 9, 1, 0, 1, 1, 0, 1),
+
+("Chloe Macias", 10, 1, "Barbarian", "Slave", "Half-Orc", "Chaotic Good", 
+332133, 1, 5, 788, 150, "vel pede blandit congue. In scelerisque scelerisque 
+dui. Suspendisse ac metus vitae velit egestas lacinia. Sed congue, elit sed", 
+"adipiscing elit. Aliquam auctor, velit eget laoreet posuere, enim nisl 
+elementum", "tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque 
+pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc", 
+"vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque eget, 
+dictum placerat,", "magna et ipsum cursus vestibulum. Mauris magna. Duis 
+dignissim tempor arcu. Vestibulum ut eros non enim commodo hendrerit. Donec 
+porttitor", 10, 18, 14, 14, 20, 15, 1, 0, 1, 0, 1, 0),
+
+("Sonia Wheeler", 8, 9, "Sorcerer", "Adventurer", "Human", "Lawful Good", 
+72424, 0, 5, 234, 71, "mauris blandit mattis. Cras eget nisi dictum augue 
+malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris 
+magna.", "tristique pellentesque, tellus sem mollis dui, in sodales elit erat 
+vitae", "Duis risus odio, auctor vitae, aliquet nec, imperdiet nec, leo. 
+Morbi neque tellus,", "lectus ante dictum mi, ac mattis velit justo nec ante. 
+Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere", 
+"Mauris vestibulum, neque sed dictum eleifend, nunc risus varius orci, in 
+consequat enim", 17, 18, 10, 9, 18, 14, 1, 0, 0, 1, 1, 0),
+
+("Hanna Chapman", 9, 8, "Wizard", "Apothecary", "Half-Elf", "Chaotic Good", 
+92553, 1, 3, 742, 161, "mi pede, nonummy ut, molestie in, tempus eu, ligula. 
+Aenean euismod mauris eu elit. Nulla facilisi. Sed", "in, dolor. Fusce 
+feugiat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam 
+auctor,", "per conubia nostra, per inceptos hymenaeos. Mauris ut quam vel 
+sapien imperdiet", "sit amet nulla. Donec non justo. Proin non massa non ante 
+bibendum ullamcorper. Duis cursus, diam at pretium aliquet,", "Duis ac arcu. 
+Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing. Mauris 
+molestie", 9, 11, 14, 9, 12, 15, 0, 0, 0, 1, 0, 1),
+
+("Sawyer Arnold", 6, 7, "Druid", "Alchemist", "Tiefling", "Lawful Neutral", 
+63642, 0, 4, 221, 44, "magna, malesuada vel, convallis in, cursus et, eros. 
+Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam", "vitae, posuere 
+at, velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum", "euismod 
+enim. Etiam gravida molestie arcu. Sed eu nibh vulputate", "Quisque fringilla 
+euismod enim. Etiam gravida molestie arcu. Sed eu nibh vulputate", "mauris 
+sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis 
+risus.", 14, 19, 13, 10, 18, 15, 1, 0, 1, 1, 1, 1),
+
+("Mark Meadows", 6, 1, "Cleric", "Bounty Hunter", "Gnome", "Neutral Good", 
+58358, 0, 4, 330, 40, "aliquet lobortis, nisi nibh lacinia orci, consectetuer 
+euismod est arcu", "tellus justo sit amet nulla. Donec non justo. Proin non", 
+"Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, 
+consequat nec, mollis", "Vivamus nibh dolor, nonummy ac, feugiat non, 
+lobortis quis, pede. Suspendisse dui. Fusce", "facilisis vitae, orci. 
+Phasellus dapibus quam quis diam. Pellentesque habitant morbi tristique", 15, 
+9, 11, 14, 14, 10, 0, 0, 1, 0, 0, 0),
+
+("Ila Burnett", 6, 1, "Monk", "Alchemist", "Dwarf", "Lawful Good", 27966, 1, 
+2, 585, 169, "nulla. Cras eu tellus eu augue porttitor interdum. Sed auctor 
+odio a purus. Duis elementum, dui quis accumsan convallis,", "eget mollis 
+lectus pede et risus. Quisque libero lacus, varius et, euismod et,", "sed 
+dictum eleifend, nunc risus varius orci, in consequat enim diam vel arcu. 
+Curabitur ut", "in lobortis tellus justo sit amet nulla. Donec non justo. 
+Proin non massa non ante bibendum", "Nunc laoreet lectus quis massa. Mauris 
+vestibulum, neque sed dictum", 11, 18, 14, 16, 10, 8, 1, 1, 0, 1, 1, 0),
+
+("Molly Bailey", 8, 10, "Wizard", "Amnesiac", "Elf", "Neutral Good", 123387, 
+0, 2, 701, 2, "vitae odio sagittis semper. Nam tempor diam dictum sapien. 
+Aenean massa.", "eu enim. Etiam imperdiet dictum magna. Ut tincidunt orci 
+quis lectus. Nullam", "molestie dapibus ligula. Aliquam erat volutpat. Nulla 
+dignissim. Maecenas ornare egestas ligula. Nullam feugiat placerat velit. 
+Quisque varius. Nam porttitor", "fringilla mi lacinia mattis. Integer eu 
+lacus. Quisque imperdiet, erat nonummy ultricies ornare,", "Maecenas ornare 
+egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor 
+scelerisque neque. Nullam nisl. Maecenas malesuada fringilla est.", 11, 15, 
+10, 18, 17, 15, 1, 0, 1, 0, 0, 0),
+
+("Sebastian Jacobs", 8, 1, "Druid", "Bounty Hunter", "Dwarf", "Lawful 
+Neutral", 85025, 0, 5, 874, 102, "Proin dolor. Nulla semper tellus id nunc 
+interdum feugiat. Sed", "massa. Suspendisse eleifend. Cras sed leo. Cras 
+vehicula aliquet libero. Integer in", "vitae semper egestas, urna justo 
+faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. 
+Cras sed leo. Cras vehicula", "justo. Proin non massa non ante bibendum 
+ullamcorper. Duis cursus,", "magna. Praesent interdum ligula eu enim. Etiam 
+imperdiet dictum magna. Ut tincidunt orci quis lectus. Nullam suscipit, est 
+ac", 20, 11, 11, 11, 11, 13, 1, 1, 0, 0, 0, 0),
+
+("Samson Booth", 4, 2, "Fighter", "Doctor", "Human", "Neutral Good", 64938, 
+1, 6, 293, 164, "Morbi non sapien molestie orci tincidunt adipiscing. Mauris 
+molestie pharetra", "risus odio, auctor vitae, aliquet nec, imperdiet nec, 
+leo. Morbi neque tellus, imperdiet non, vestibulum nec, euismod in,", 
+"imperdiet non, vestibulum nec, euismod in, dolor. Fusce feugiat. Lorem ipsum 
+dolor sit amet, consectetuer adipiscing", "penatibus et magnis dis parturient 
+montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra.", 
+"nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam", 
+8, 12, 12, 20, 17, 20, 0, 1, 1, 0, 1, 0)
 ''')
 
 print('Insert sample spells<br>')
