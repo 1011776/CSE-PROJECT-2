@@ -28,14 +28,14 @@ INSERT INTO Student (StudentID, FirstName, LastName, Year) VALUES
 (1000607,   "Lawrence", "Warner",   11),
 (1005740,   "Lev",      "Morin",    9),
 (1075728,   "Reece",    "Puckett",  5),
-(1043641,   "Garrison", "Steele",   7),
+(1043641,   "Garrison", "Steele",   7)
 ''')
 
 print('Insert sample campaigns<br>')
 cursor.execute('''
 INSERT INTO Campaign (StudentIDFK, CampaignName) VALUES
 ("Lost Mine of Phandelver",     1028983),
-("Hoard of the Dragon Queen",   1088611),
+("Hoard of the Dragon Queen",   1088611)
 ''')
 
 print('Insert sample characters<br>')
