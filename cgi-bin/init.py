@@ -94,7 +94,7 @@ cursor.execute('''CREATE TABLE Spell (
         SpellID         INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
         Level           INTEGER,
-        Description     VARCHAR(1000)
+        Description     VARCHAR(10000)
         )''')
 
 print('Create CharacterProficiency table<br>')
@@ -125,14 +125,14 @@ print('Create Item table<br>')
 cursor.execute('''CREATE TABLE Item (
         ItemID          INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
-        Description     VARCHAR(1000)
+        Description     VARCHAR(10000)
         )''')
 
 print('Create Ability table<br>')
 cursor.execute('''CREATE TABLE Ability (
         AbilityID       INTEGER PRIMARY KEY,
         Name            VARCHAR(100),
-        Description     VARCHAR(1000)
+        Description     VARCHAR(10000)
         )''')
 
 print('Create CharacterAbility table<br>')
