@@ -18,16 +18,16 @@ print('Enable foreign keys<br>')
 cursor.execute('PRAGMA foreign_keys = ON')
 
 print('Drop tables if they exist<br>')
-cursor.execute('''DROP TABLE IF EXISTS Student''')
-cursor.execute('''DROP TABLE IF EXISTS Campaign''')
-cursor.execute('''DROP TABLE IF EXISTS Character''')
-cursor.execute('''DROP TABLE IF EXISTS CharacterSpell''')
-cursor.execute('''DROP TABLE IF EXISTS Spell''')
-cursor.execute('''DROP TABLE IF EXISTS CharacterProficiency''')
-cursor.execute('''DROP TABLE IF EXISTS Proficiency''')
-cursor.execute('''DROP TABLE IF EXISTS CharacterItem''')
-cursor.execute('''DROP TABLE IF EXISTS Item''')
 cursor.execute('''DROP TABLE IF EXISTS CharacterAbility''')
+cursor.execute('''DROP TABLE IF EXISTS CharacterItem''')
+cursor.execute('''DROP TABLE IF EXISTS CharacterProficiency''')
+cursor.execute('''DROP TABLE IF EXISTS CharacterSpell''')
+cursor.execute('''DROP TABLE IF EXISTS Character''')
+cursor.execute('''DROP TABLE IF EXISTS Campaign''')
+cursor.execute('''DROP TABLE IF EXISTS Student''')
+cursor.execute('''DROP TABLE IF EXISTS Spell''')
+cursor.execute('''DROP TABLE IF EXISTS Proficiency''')
+cursor.execute('''DROP TABLE IF EXISTS Item''')
 cursor.execute('''DROP TABLE IF EXISTS Ability''')
 
 print('Create Student table<br>')
@@ -64,7 +64,6 @@ cursor.execute('''
         ProfBonus       INTEGER,
         Gold            INTEGER,
         HitPointMax     INTEGER,
-        TotalHitDice    INTEGER,
         PTraits         VARCHAR(1000),
         Ideals          VARCHAR(1000),
         Bonds           VARCHAR(1000),
