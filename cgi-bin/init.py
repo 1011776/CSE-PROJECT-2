@@ -42,8 +42,7 @@ print('Create Campaign table<br>')
 cursor.execute('''CREATE TABLE Campaign (
         CampaignID      INTEGER PRIMARY KEY AUTOINCREMENT,
         StudentIDFK     INTEGER,
-        FirstName       VARCHAR(100),
-        LastName        VARCHAR(100),
+        CampaignName    VARCHAR(100),
         FOREIGN KEY (StudentIDFK) REFERENCES Student(StudentID)
         )''')
 
