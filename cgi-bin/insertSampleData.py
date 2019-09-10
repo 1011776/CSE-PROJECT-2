@@ -17,8 +17,29 @@ print('<h1>D&D Database</h1>')
 print('<h2>Insert sample data</h2>')
 
 print('Insert sample students<br>')
-cursor.execute('''INSERT INTO Student (StudentID, FirstName, LastName, Year)
-        VALUES (1011775, "Steve", "Smith", 6)''')
+
+cursor.execute('''INSERT INTO Student (`StudentID`,`FirstName`,`LastName`,`Year`)
+VALUES (1038387,"Caleb","Miles",    5),
+(1028983,   "Daquan",   "Lopez",    6),
+(1088611,   "Caldwell", "Santos",   12),
+(1031582,   "Burke",    "Luna",     6),
+(1011033,   "Brady",    "Landry",   5),
+(1072548,   "Allen",    "Dennis",   6),
+(1007463,   "Elton",    "Hall",     6),
+(1082808,   "Plato",    "Simpson",  5),
+(1082129,   "Julian",   "Butler",   9),
+(1000607,   "Lawrence", "Warner",   11);
+(1005740,   "Lev",      "Morin",    9),
+(1051459,   "Brian",    "Hubbard",  5),
+(1075728,   "Reece",    "Puckett",  5),
+(1001326,   "Bruno",    "Newton",   9),
+(1021386,   "Lucian",   "Leblanc",  9),
+(1070109,   "Trevor",   "Martin",   7),
+(1058865,   "Alfonso",  "Blackburn",8),
+(1043641,   "Garrison", "Steele",   7),
+(1018937,   "Hamilton", "West",     5),
+(1055321,   "Elijah",   "Roth",     5);
+''')
 
 print('Insert sample spells<br>')
 cursor.execute('''INSERT INTO Spell (Name, Level, Description)
