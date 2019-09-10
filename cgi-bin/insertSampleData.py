@@ -294,14 +294,14 @@ cursor.execute('''
         spells don’t nullify each other.')
         ''')
 
-print('Insert sample items<br>')
+print('Insert sample proficiencies<br>')
 cursor.execute('''INSERT INTO Proficiency (Name, Attribute) VALUES
         ("Acrobatics",      "Dex"),
         ("Animal Handling", "Wis"),
         ("Arcana",          "Int"),
         ("Athletics",       "Str"),
         ("Deception",       "Cha"),
-        (History"",         "Int"),
+        ("History",         "Int"),
         ("Insight",         "Wis"),
         ("Intimidation",    "Cha"),
         ("Investigation",   "Int"),
@@ -314,7 +314,7 @@ cursor.execute('''INSERT INTO Proficiency (Name, Attribute) VALUES
         ("Sleight of Hand", "Dex"),
         ("Stealth",         "Dex"),
         ("Survival",        "Wis")
-''')
+        ''')
 
 print('Insert sample items<br>')
 cursor.execute('''INSERT INTO Item (Name, Description) VALUES
