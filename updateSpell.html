@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D&D Database: Insert a spell</title>
+		<link rel="stylesheet" href="stylesheet.css">	
+	</head>
+	<body>
+		<h1>D&D Database</h1>
+		<h2>Update a spell</h2>
+		<form name="input" action="cgi-bin/updateSpell.py">
+			ID:<br>
+			<input type="text" name="id" required><br>
+			Name:<br>
+			<input type="text" name="name" required><br>
+			Level:<br>
+			<input type="number" name="level" min="0" max="9" required><br>
+			Description:<br>
+			<textarea rows="4", cols="50" name="description" required></textarea><br>
+			<input type="submit" value="Submit"><br>
+		</form>
+		<br>
+		<a href="index.html">Return to homepage</a><br>	
+	</body>
+</html>
