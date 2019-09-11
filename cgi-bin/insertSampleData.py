@@ -173,7 +173,7 @@ This spell’s damage increases by ld6 when you
 reach 5th level (2d6), 11th level (3d6), and 17th 
 level (4d6).'),
 
-("Aid ", 2,
+("Aid", 2,
 'Your spell bolsters your allies with toughness and 
 resolve. Choose up to three creatures within range. 
 Each target’s hit point maximum and current hit 
@@ -198,7 +198,7 @@ This ping awakens you if you are sleeping.\n
 An audible alarm produces the sound of a hand 
 bell for 10 seconds within 60 feet.'),
 
-("Alter Self ", 2,
+("Alter Self", 2,
 'You assume a different form. When you cast the spell, 
 choose one of the following options, the effects of 
 which last for the duration of the spell. While the 
