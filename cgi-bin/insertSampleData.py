@@ -573,6 +573,34 @@ playing when it reaches the song’s end or when it
 is closed.')
 ''')
 
+print('Insert sample character spell relationships<br>')
+cursor.execute('''INSERT INTO CharacterSpell (CharacterIDFK, SpellIDFK) VALUES
+(3, 4), (3, 8), (7, 9), (8, 2), (2, 5), (4, 4), (2, 10), (10, 4), (7, 2), 
+(6, 8), (3, 4), (1, 5), (5, 2), (6, 8), (6, 7), (4, 9), (4, 1), (9, 6), 
+(7, 9), (6, 8)
+''')
+
+print('Insert sample character proficiency relationships<br>')
+cursor.execute('''INSERT INTO CharacterProficiency (CharacterIDFK, ProficiencyIDFK) VALUES
+(1, 2), (1, 11), (1, 9), (2, 17), (2, 1), (2, 8), (3, 8), (3, 18), (3, 13), 
+(4, 15), (4, 12), (5, 17), (5, 18), (6, 12), (6, 18), (7, 7), (7, 16), (8, 17), 
+(9, 10), (10, 13)
+''')
+
+print('Insert sample character item relationships<br>')
+cursor.execute('''INSERT INTO CharacterItem (CharacterIDFK, ItemIDFK, Quantity) VALUES
+(4, 8, 5), (9, 7, 17), (2, 2, 23), (8, 5, 48), (1, 1, 46), (7, 7, 11),
+(7, 4, 46), (4, 3, 50), (8, 5, 20), (9, 10, 6), (1, 4, 30), (3, 6, 25), 
+(7, 9, 22), (6, 10, 19), (2, 6, 27), (8, 6, 7), (7, 9, 46), (2, 2, 31), 
+(5, 4, 13), (1, 10, 2)
+''')
+
+print('Insert sample character ability relationships<br>')
+cursor.execute('''INSERT INTO CharacterAbility (CharacterIDFK, AbilityIDFK) VALUES
+(4, 1), (2, 8), (8, 1), (7, 8), (2, 10), (1, 1), (3, 8), (3, 2), (1, 2), 
+(9, 3), (9, 7), (10, 9), (9, 9), (4, 10), (4, 3), (6, 2), (2, 7), (1, 9), 
+(6, 8), (7, 9)
+''')
 
 print('<br/>')
 print('Data insertion complete<br>')
