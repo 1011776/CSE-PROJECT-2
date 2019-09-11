@@ -28,7 +28,7 @@ cursor.execute('''
 
 records = cursor.fetchall()
 
-print('<table border="1px solid black">')
+print('<table>')
 print('<tr><td>Spell ID<td>Name</td><td>Level</td><td>View</td></tr>')
 if len(records) > 0:
 	for record in records:
@@ -36,7 +36,9 @@ if len(records) > 0:
 		for field in record:
 			print('<td>' + str(field) + '</td>')
 		print('''<td><form>
-                        <input type="submit" value="        ">
+                        <input type="hidden" name="spellID" value="'''
+                        + str(record[0]) + '''">
+                        <input type=submit value="">
                         </form></td></tr>''')
 	print('</table>')
 else:
