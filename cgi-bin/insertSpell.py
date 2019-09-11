@@ -29,9 +29,18 @@ cursor.execute('''
         ''', values)
 
 print('Insertion completed<br>')
-print('<br>')
-print('<a href="../insertSpell.html">Insert another spell</a><br>')
-print('<a href="../index.html">Return to homepage</a><br>')
+
+print('<br/>')
+print('<form action="../index.html">')
+print('<input type=submit value="Return to Homepage"/>')
+print('</form>')
+
+print('<div class="footer">')
+print('D&D Database is unofficial Fan Content permitted under')
+print('the Fan Content Policy. Not approved/endorsed by')
+print('Wizards. Portions of the materials used are property')
+print('of Wizards of the Coast. &#169;Wizards of the Coast LLC')
+print('</div>')
 
 conn.commit()
 cursor.close()
