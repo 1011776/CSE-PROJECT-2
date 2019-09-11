@@ -17,3 +17,7 @@ h2 {
 body {
 	background-color: beige;
 }
+
+form {
+     display:inline;
+}
