@@ -23,7 +23,11 @@ form {
 }
 
 table {
-	border: "1px solid black";
+	border: 1px;
+}
+
+table, th, td {
+  border: 1px solid black;
 }
 
 input[type="submit"] {
