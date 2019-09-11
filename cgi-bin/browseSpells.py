@@ -22,30 +22,52 @@ values = { "name": name, "level": level }
 
 cursor.execute('''
         SELECT SpellID, Name, Level FROM Spell
-        WHERE (:name = LOWER(Name) OR :name IS NULL)
+        WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
         AND (:level = Level OR :level IS NULL)
         ''', values)
 
 records = cursor.fetchall()
 
-print('<table>')
-print('<tr><td>Spell ID<td>Name</td><td>Level</td><td>View</td></tr>')
 if len(records) > 0:
-	for record in records:
-		print('<tr>')
-		for field in record:
-			print('<td>' + str(field) + '</td>')
-		print('''<td><form>
-                        <input type="hidden" name="spellID" value="'''
-                        + str(record[0]) + '''">
-                        <input type=submit value="">
-                        </form></td></tr>''')
-	print('</table>')
-else:
-	print('No records found')
+    print('<table>')
+    print('<tr><td>Name</td><td>Level</td><td>View</td><td>Update</td><td>Delete</td></tr>')
+    for record in records:
+        print('<tr>')
+        print('<td>' + str(record[1]) + '</td>')
+        print('<td>' + str(record[2]) + '</td>')
+        print('''<td><form>
+                <input type="hidden" name="spellID" value="'''
+                + str(record[0]) + '''">
+                <input type=submit value="">
+                </form></td>''')
+        print('''<td><form>
+                <input type="hidden" name="spellID" value="'''
+                + str(record[0]) + '''">
+                <input type=submit value="">
+                </form></td>''')
+        print('''<td><form>
+                <input type="hidden" name="spellID" value="'''
+                + str(record[0]) + '''">
+                <input type=submit value="">
+                </form></td>''')
 
-print('<a href="../insertSpell.html">Insert another spell</a><br>')
-print('<a href="../index.html">Return to homepage</a><br>')
+        print('</tr>')
+    print('</table>')
+else:
+    print('No records found')
+
+print('<br/>')
+print('<br/>')
+print('<form action="../index.html">')
+print('<input type=submit value="Return to Homepage"/>')
+print('</form>')
+
+print('<div class="footer">')
+print('D&D Database is unofficial Fan Content permitted under')
+print('the Fan Content Policy. Not approved/endorsed by')
+print('Wizards. Portions of the materials used are property')
+print('of Wizards of the Coast. &#169;Wizards of the Coast LLC')
+print('</div>')
 
 conn.commit()
 cursor.close()
