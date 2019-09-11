@@ -35,9 +35,8 @@ if len(records) > 0:
 		print('<tr>')
 		for field in record:
 			print('<td>' + str(field) + '</td>')
-		print('<td><form><input type="submit" value=""></form></td>')
-		print('</tr>')
-	print('</table>')                        
+		print('<td><form><input type="submit" value="        "></form></td></tr>')
+	print('</table>')
 else:
 	print('No records found')
 
