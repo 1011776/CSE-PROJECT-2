@@ -19,7 +19,15 @@ body {
 }
 
 form {
-     display:inline;
+     display: inline;
+}
+
+table {
+	border: "1px solid black";
+}
+
+input[type="submit"] {
+    width: 150px;
 }
 
 .footer {
