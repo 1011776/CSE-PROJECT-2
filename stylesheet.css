@@ -21,3 +21,8 @@ body {
 form {
      display:inline;
 }
+
+.footer {
+   position: fixed;
+   bottom: 0;
+}
