@@ -21,13 +21,24 @@ level = form.getvalue('level')
 values = { "name": name, "level": level }
 
 cursor.execute('''
-        SELECT Name, Level FROM Spell 
-        WHERE (:name = Spell(NAME) OR :name = "")
-        AND (:level = OR :level = NULL)
+        SELECT Name, Level FROM Spell
+        WHERE :level = Level OR :level IS NULL
         ''', values)
 
-print('Insertion completed<br>')
-print('<br>')
+records = cursor.fetchall()
+
+print('<table border="1px solid black">')
+print('<tr><td>Name</td><td>Level</td></tr>')
+if len(records) > 0:
+	for record in records:
+		print('<tr>')
+		for field in record:
+			print('<td>' + str(field) + '</td>')
+		print('</tr>')
+	print('</table>')                        
+else:
+	print('No records found')
+
 print('<a href="../insertSpell.html">Insert another spell</a><br>')
 print('<a href="../index.html">Return to homepage</a><br>')
 
