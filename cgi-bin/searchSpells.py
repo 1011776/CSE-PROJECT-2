@@ -21,19 +21,21 @@ level = form.getvalue('level')
 values = { "name": name, "level": level }
 
 cursor.execute('''
-        SELECT Name, Level FROM Spell
-        WHERE :level = Level OR :level IS NULL
+        SELECT SpellID, Name, Level FROM Spell
+        WHERE (:name = LOWER(Name) OR :name IS NULL)
+        AND (:level = Level OR :level IS NULL)
         ''', values)
 
 records = cursor.fetchall()
 
 print('<table border="1px solid black">')
-print('<tr><td>Name</td><td>Level</td></tr>')
+print('<tr><td>Spell ID<td>Name</td><td>Level</td><td>View</td></tr>')
 if len(records) > 0:
 	for record in records:
 		print('<tr>')
 		for field in record:
 			print('<td>' + str(field) + '</td>')
+		print('<td><form><input type="submit" value=""></form></td>')
 		print('</tr>')
 	print('</table>')                        
 else:
