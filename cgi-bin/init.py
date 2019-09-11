@@ -157,10 +157,20 @@ cursor.execute('''
 
 print('<br/>')
 print('Table creation complete<br>')
-
 print('<br/>')
-print('<a href="insertSampleData.py">Insert sample data</a><br>')
-print('<a href="../index.html">Return to homepage</a><br>')
+print('<form action="insertSampleData.py">')
+print('<input type=submit value="Insert Sample Data"/>')
+print('</form><br><br>')
+print('<form action="../index.html">')
+print('<input type=submit value="Return to Homepage"/>')
+print('</form>')
+
+print('<div class="footer">')
+print('D&D Database is unofficial Fan Content permitted under')
+print('the Fan Content Policy. Not approved/endorsed by')
+print('Wizards. Portions of the materials used are property')
+print('of Wizards of the Coast. &#169;Wizards of the Coast LLC')
+print('</div>')
 
 conn.commit()
 cursor.close()
