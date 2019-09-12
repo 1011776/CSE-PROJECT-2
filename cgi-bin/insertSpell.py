@@ -31,6 +31,11 @@ cursor.execute('''
 print('Insertion completed<br>')
 
 print('<br/>')
+print('<form action="../spells.html">')
+print('<input type=submit value="Spells"/>')
+print('</form>')
+print('<br/>')
+print('<br/>')
 print('<form action="../index.html">')
 print('<input type=submit value="Return to Homepage"/>')
 print('</form>')

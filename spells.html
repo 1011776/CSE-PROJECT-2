@@ -6,22 +6,30 @@
 	</head>
 	<body>
 		<h1>D&D Database</h1>
-		<h2>Browse Spells</h2>
+		<h2>Spells</h2>
 
 		<h3>Insert Spell</h3>
-		<form action="insertSpell.html">
-			<input type=submit value="Insert a Spell"/>
+		<form action="cgi-bin/insertSpell.py">
+			Name:<br>
+			<input type="text" name="name" required><br>
+			Level:<br>
+			<input type="number" name="level" min="0" max="9" required><br>
+			Description:<br>
+			<textarea rows="4", cols="50" name="description" required></textarea>
+			<br><br>
+			<input type="submit" value="Insert Spell"><br>
 		</form>
 
 		<h3>Search Spells</h3>
+		Fields left blank will not filter results.<br>
 		<form name="input" action="cgi-bin/browseSpells.py">
 			Name:<br>
 			<input type="text" name="name"><br>
 			Level:<br>
 			<input type="number" name="level" min="0" max="9"><br><br>
-			<input type="submit" value="Submit"><br>
-		</form><br>
-
+			<input type="submit" value="Search"><br>
+		</form>
+		<br><br>
 		<form action="index.html">
 			<input type="submit" value="Return to Homepage"/>
 		</form>
