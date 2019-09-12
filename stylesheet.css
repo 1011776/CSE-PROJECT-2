@@ -15,14 +15,15 @@ table, th, td {
 }
 
 input[type=submit] {
-	width: 150px;
+	width: 160px;
 }
 
 input[name=empty] {
-	width:75px;
+	width: 125px;
 }
 
 .footer {
 	position: fixed;
-	bottom: 15px;
+	bottom: 0px;
+	background-color: beige;
 }
