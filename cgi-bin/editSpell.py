@@ -15,13 +15,13 @@ print('<h1>D&D Database</h1>')
 print('<h2>Edit spell</h2>')
 
 form = cgi.FieldStorage()
-name = form.getvalue('spellID')
+spellID = form.getvalue('spellID')
 
 values = { "spellID": spellID }
 
 cursor.execute('''
         SELECT SpellID, Name, Level, Description FROM Spell
-        WHERE SpellID == :spellID
+        WHERE SpellID = :spellID
         ''', values)
 
 records = cursor.fetchall()
@@ -29,13 +29,13 @@ records = cursor.fetchall()
 print('form action="cgi-bin/insertSpell.py">')
 print('Name:<br>')
 print('<input type="text" name="name" value="' 
-        + records[0][1] + ' required><br>')
+        + records[0][1] + '" required><br>')
 print('Level:<br>')
-print('<input type="number" name="level" min="0" max="9" value="' 
-        + records[0][2] +'" required><br>')
+print('<input type="number" name="level" min="0" max="9" value=' 
+        + str(records[0][2]) +' required><br>')
 print('Description:<br>')
-print('<textarea rows="4", cols="50" name="description" value="'
-        + record[0][3] + '"required>')
+print('<textarea rows="4", cols="50" name="description" required>')
+print(records[0][3])
 print('</textarea><br><br>')
 print('<input type="submit" value="Submit"><br>')
 print('</form><br>')
