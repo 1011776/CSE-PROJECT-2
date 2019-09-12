@@ -25,7 +25,7 @@ print('<form name="input" action="insertCharacterSpell.py">')
 print('<input type="hidden" value="' + spellID + '"<br>')
 print('Character ID:<br>')
 print('<input type="number" name="characterID"><br><br>')
-print('<input type="submit" value="Add to CharacterID"><br>')
+print('<input type="submit" value="Add to Character"><br>')
 print('</form>')
 
 print('<br>')
