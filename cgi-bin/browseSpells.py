@@ -35,7 +35,7 @@ if len(records) > 0:
         print('<tr>')
         print('<td>' + str(record[1]) + '</td>')
         print('<td>' + str(record[2]) + '</td>')
-        print('''<td><form>
+        print('''<td><form action="viewSpell.py"viewSpell.py>
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">

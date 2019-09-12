@@ -20,14 +20,23 @@ spellID = form.getvalue('spellID')
 values = { "spellID": spellID }
 
 cursor.execute('''
-        SELECT SpellID, Name, Level FROM Spell
+        SELECT SpellID, Name, Level, Description FROM Spell
         WHERE :spellID = SpellID
         ''', values)
 
 records = cursor.fetchall()
 
+print("Spell ID: ")
+print(str(records[0][0]))
+print("<br><br>")
 print("Name: ")
 print(records[0][1])
+print("<br><br>")
+print("Level: ")
+print(str(records[0][2]))
+print("<br><br>")
+print("Description:<br>")
+print(records[0][3])
 
 print('<br/>')
 print('<br/>')
