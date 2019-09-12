@@ -30,8 +30,8 @@ records = cursor.fetchall()
 
 if len(records) > 0:
     print('<table>')
-    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Update</th>
-            <th>Delete</th><th>Add to Character</th></tr>')
+    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Update</th>'
+            + '<th>Delete</th><th>Add to Character</th></tr>')
     for record in records:
         print('<tr>')
         print('<td>' + str(record[1]) + '</td>')
@@ -64,7 +64,7 @@ else:
 print('<br/>')
 print('<br/>')
 print('<form action="../spells.html">')
-print('<input type=submit value="Spells"/>')
+print('<input type=submit value="Return to Spells Menu"/>')
 print('</form>')
 print('<br/>')
 print('<br/>')
