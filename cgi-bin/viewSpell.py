@@ -26,9 +26,6 @@ cursor.execute('''
 
 records = cursor.fetchall()
 
-print("Spell ID: ")
-print(str(records[0][0]))
-print("<br><br>")
 print("Name: ")
 print(records[0][1])
 print("<br><br>")
