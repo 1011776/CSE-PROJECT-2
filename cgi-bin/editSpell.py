@@ -12,24 +12,50 @@ print('<title>D&D Database: Update a spell</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Update a spell</h2>')
+print('<h2>Edit spell</h2>')
 
 form = cgi.FieldStorage()
-name = form.getvalue('name')
-level = form.getvalue('level')
-description = form.getvalue('description')
+name = form.getvalue('spellID')
 
-values = { "name": name, "level": level, "description": description }
+values = { "spellID": spellID }
 
 cursor.execute('''
-        INSERT INTO Spell(Name, Level, Description) 
-        VALUES (:name, :level, :description)
+        SELECT SpellID, Name, Level, Description FROM Spell
+        WHERE SpellID == :spellID
         ''', values)
+
+records = cursor.fetchall()
+
+print('form action="cgi-bin/insertSpell.py">')
+print('Name:<br>')
+print('<input type="text" name="name" value="' 
+        + records[0][1] + ' required><br>')
+print('Level:<br>')
+print('<input type="number" name="level" min="0" max="9" value="' 
+        + records[0][2] +'" required><br>')
+print('Description:<br>')
+print('<textarea rows="4", cols="50" name="description" value="'
+        + record[0][3] + '"required>')
+print('</textarea><br><br>')
+print('<input type="submit" value="Submit"><br>')
+print('</form><br>')
 
 print('Insertion completed<br>')
 print('<br>')
-print('<a href="../insertSpell.html">Insert another spell</a><br>')
-print('<a href="../index.html">Return to homepage</a><br>')
+
+print('Spell data successfully updated')
+print('<br/>')
+print('<br/>')
+print('<form action="../index.html">')
+print('<input type=submit value="Return to Homepage"/>')
+print('</form>')
+
+print('<div class="footer">')
+print('D&D Database is unofficial Fan Content permitted under')
+print('the Fan Content Policy. Not approved/endorsed by')
+print('Wizards. Portions of the materials used are property')
+print('of Wizards of the Coast. &#169;Wizards of the Coast LLC')
+print('</div>')
 
 conn.commit()
 cursor.close()
