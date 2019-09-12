@@ -8,7 +8,7 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Update a spell</title>')
+print('<title>D&D Database: Edit Spell</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
@@ -26,7 +26,9 @@ cursor.execute('''
 
 records = cursor.fetchall()
 
-print('form action="cgi-bin/insertSpell.py">')
+print('<form action="updateSpell.py">')
+print('<input type="hidden" name="spellID" value="'
+        + spellID +'>')
 print('Name:<br>')
 print('<input type="text" name="name" value="' 
         + records[0][1] + '" required><br>')
@@ -38,13 +40,8 @@ print('<textarea rows="4", cols="50" name="description" required>')
 print(records[0][3])
 print('</textarea><br><br>')
 print('<input type="submit" value="Submit"><br>')
-print('</form><br>')
+print('</form>')
 
-print('Insertion completed<br>')
-print('<br>')
-
-print('Spell data successfully updated')
-print('<br/>')
 print('<br/>')
 print('<form action="../index.html">')
 print('<input type=submit value="Return to Homepage"/>')
