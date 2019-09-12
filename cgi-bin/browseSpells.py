@@ -51,7 +51,7 @@ if len(records) > 0:
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="insertCharacterSpell.py">
+        print('''<td><form action="addSpellToCharacter.py">
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
