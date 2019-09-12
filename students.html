@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D&D Database: Students Menu</title>
+		<link rel="stylesheet" href="stylesheet.css">	
+	</head>
+	<body>
+		<h1>D&D Database</h1>
+		<h2>Students Menu</h2>
+
+		<h3>Insert Student</h3>
+		<form action="cgi-bin/insertSpell.py">
+			First Name:<br>
+			<input type="text" name="firstName"><br>
+			Last Name:<br>
+			<input type="text" name="lastName"><br>
+			Year:<br>
+			<input type="number" name="year" min="5" max="12"><br><br>
+			<input type="submit" value="Insert Student"><br>
+		</form>
+
+		<h3>Search Students</h3>
+		Search will return all students if fields are left blank<br>
+		Blank fields will not act as filters<br><br>
+		<form name="input" action="cgi-bin/browseStudents.py">
+			First Name:<br>
+			<input type="text" name="firstName"><br>
+			Last Name:<br>
+			<input type="text" name="lastName"><br>
+			Year:<br>
+			<input type="number" name="year" min="5" max="12"><br><br>
+			<input type="submit" value="Search"><br>
+		</form>
+		<br><br>
+		<form action="index.html">
+			<input type="submit" value="Return to Homepage"/>
+		</form>
+
+		<div class="footer">
+		D&D Database is unofficial Fan Content permitted under
+		the Fan Content Policy. Not approved/endorsed by
+		Wizards. Portions of the materials used are property
+		of Wizards of the Coast. &#169;Wizards of the Coast LLC
+		</div>
+	</body>
+</html>
