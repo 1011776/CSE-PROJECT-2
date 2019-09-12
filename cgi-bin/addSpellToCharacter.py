@@ -30,6 +30,7 @@ print('</form>')
 
 print('<br>')
 print('<br>')
+print('<br>')
 print('<form action="../spells.html">')
 print('<input type=submit value="Return to Spells Menu"/>')
 print('</form>')

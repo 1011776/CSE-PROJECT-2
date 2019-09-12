@@ -9,12 +9,12 @@ conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
 #print('<head>'
-print('<title>D&D Database: Insert a spell</title>')
+print('<title>D&D Database: Insert a Spell</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 #print('</head>')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Insert a spell</h2>')
+print('<h2>Insert a Spell</h2>')
 
 form = cgi.FieldStorage()
 name = form.getvalue('name')
@@ -31,8 +31,9 @@ cursor.execute('''
 print('Insertion completed<br>')
 
 print('<br/>')
+print('<br/>')
 print('<form action="../spells.html">')
-print('<input type=submit value="Spells"/>')
+print('<input type=submit value="Return to Spells Menu"/>')
 print('</form>')
 print('<br/>')
 print('<br/>')

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>D&D Database: Insert a spell</title>
+		<title>D&D Database: Spells Menu</title>
 		<link rel="stylesheet" href="stylesheet.css">	
 	</head>
 	<body>
@@ -15,13 +15,14 @@
 			Level:<br>
 			<input type="number" name="level" min="0" max="9" required><br>
 			Description:<br>
-			<textarea rows="4", cols="50" name="description" required></textarea>
+			<textarea rows="4", cols="50" name="description"></textarea>
 			<br><br>
 			<input type="submit" value="Insert Spell"><br>
 		</form>
 
 		<h3>Search Spells</h3>
-		Search will return all spells if fields are blank.<br><br>
+		Search will return all spells if fields are blank.<br>
+		Blank fields will not act as filters.<br><br>
 		<form name="input" action="cgi-bin/browseSpells.py">
 			Name:<br>
 			<input type="text" name="name"><br>

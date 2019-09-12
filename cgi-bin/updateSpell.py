@@ -29,14 +29,16 @@ cursor.execute('''
         WHERE :spellID = spellID
         ''', values)
 
-print('Insertion completed<br>')
+print('Insertion completed')
 
-print('<br/>')
+print('<br>')
+print('<br>')
+print('<br>')
 print('<form action="../spells.html">')
-print('<input type=submit value="Spells"/>')
+print('<input type=submit value="Return to Spells Menu"/>')
 print('</form>')
-print('<br/>')
-print('<br/>')
+print('<br>')
+print('<br>')
 print('<form action="../index.html">')
 print('<input type=submit value="Return to Homepage"/>')
 print('</form>')

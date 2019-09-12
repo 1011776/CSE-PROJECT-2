@@ -12,7 +12,7 @@ print('<title>D&D Database: Edit Spell</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Edit spell</h2>')
+print('<h2>Edit Spell</h2>')
 
 form = cgi.FieldStorage()
 spellID = form.getvalue('spellID')
@@ -27,8 +27,8 @@ cursor.execute('''
 records = cursor.fetchall()
 
 print('<form action="updateSpell.py">')
-print('<input type="hidden" name="spellID" value="'
-        + spellID +'>')
+print('<input type="hidden" name="spellID" value='
+        + str(spellID) +'>')
 print('Name:<br>')
 print('<input type="text" name="name" value="' 
         + records[0][1] + '" required><br>')
@@ -36,17 +36,19 @@ print('Level:<br>')
 print('<input type="number" name="level" min="0" max="9" value=' 
         + str(records[0][2]) +' required><br>')
 print('Description:<br>')
-print('<textarea rows="4", cols="50" name="description" required>'
-        + records[0][3]) + '</textarea><br><br>')
-print('<input type="submit" value="Submit"><br>')
+print('<textarea rows="4", cols="50" name="description">'
+        + records[0][3] + '</textarea><br><br>')
+print('<input type="submit" value="Commit Changes">')
 print('</form>')
 
-print('<br/>')
+print('<br>')
+print('<br>')
+print('<br>')
 print('<form action="../spells.html">')
-print('<input type=submit value="Spells"/>')
+print('<input type=submit value="Return to Spells Menu"/>')
 print('</form>')
-print('<br/>')
-print('<br/>')
+print('<br>')
+print('<br>')
 print('<form action="../index.html">')
 print('<input type=submit value="Return to Homepage"/>')
 print('</form>')

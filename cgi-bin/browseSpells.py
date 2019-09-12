@@ -8,11 +8,11 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Insert a spell</title>')
+print('<title>D&D Database: Search Spells</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Browse Spells</h2>')
+print('<h2>Search Spells</h2>')
 
 form = cgi.FieldStorage()
 name = form.getvalue('name')
@@ -30,7 +30,7 @@ records = cursor.fetchall()
 
 if len(records) > 0:
     print('<table>')
-    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Update</th>'
+    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Edit</th>'
             + '<th>Delete</th><th>Add to Character</th></tr>')
     for record in records:
         print('<tr>')
@@ -61,6 +61,7 @@ if len(records) > 0:
 else:
     print('No records found')
 
+print('<br/>')
 print('<br/>')
 print('<br/>')
 print('<form action="../spells.html">')

@@ -8,10 +8,8 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-#print('<head>'
 print('<title>D&D Database: Insert a spell</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
-#print('</head>')
 
 print('<h1>D&D Database</h1>')
 print('<h2>Add Spell to Character</h2>')
