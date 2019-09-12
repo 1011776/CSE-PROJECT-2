@@ -12,7 +12,7 @@ print('<title>D&D Database: Insert a spell</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Search Spells</h2>')
+print('<h2>Browse Spells</h2>')
 
 form = cgi.FieldStorage()
 name = form.getvalue('name')
@@ -38,17 +38,17 @@ if len(records) > 0:
         print('''<td><form>
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
-                <input type=submit value="">
+                <input type=submit name=empty value="">
                 </form></td>''')
         print('''<td><form>
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
-                <input type=submit value="">
+                <input type=submit name=empty value="">
                 </form></td>''')
         print('''<td><form>
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
-                <input type=submit value="">
+                <input type=submit name=empty value="">
                 </form></td>''')
 
         print('</tr>')
