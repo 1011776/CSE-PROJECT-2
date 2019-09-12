@@ -30,7 +30,8 @@ records = cursor.fetchall()
 
 if len(records) > 0:
     print('<table>')
-    print('<tr><td>Name</td><td>Level</td><td>View</td><td>Update</td><td>Delete</td></tr>')
+    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Update</th>
+            <th>Delete</th><th>Add to Character</th></tr>')
     for record in records:
         print('<tr>')
         print('<td>' + str(record[1]) + '</td>')
@@ -46,6 +47,11 @@ if len(records) > 0:
                 <input type=submit name=empty value="">
                 </form></td>''')
         print('''<td><form action="removeSpell.py">
+                <input type="hidden" name="spellID" value="'''
+                + str(record[0]) + '''">
+                <input type=submit name=empty value="">
+                </form></td>''')
+        print('''<td><form action="insertCharacterSpell.py">
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
