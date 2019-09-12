@@ -8,51 +8,48 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Search Spells</title>')
+print('<title>D&D Database: Search Items</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Search Spells</h2>')
+print('<h2>Search Items</h2>')
 
 form = cgi.FieldStorage()
 name = form.getvalue('name')
-level = form.getvalue('level')
 
-values = { "name": name, "level": level }
+values = { "name": name }
 
 cursor.execute('''
-        SELECT SpellID, Name, Level FROM Spell
+        SELECT ItemID, Name FROM Item
         WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
-        AND (:level = Level OR :level IS NULL)
         ''', values)
 
 records = cursor.fetchall()
 
 if len(records) > 0:
     print('<table>')
-    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Edit</th>'
+    print('<tr><th>Name</th><th>View</th><th>Edit</th>'
             + '<th>Delete</th><th>Add to Character</th></tr>')
     for record in records:
         print('<tr>')
         print('<td>' + str(record[1]) + '</td>')
-        print('<td>' + str(record[2]) + '</td>')
-        print('''<td><form action="viewSpell.py">
-                <input type="hidden" name="spellID" value="'''
+        print('''<td><form action="viewItem.py">
+                <input type="hidden" name="itemID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="editSpell.py">
-                <input type="hidden" name="spellID" value="'''
+        print('''<td><form action="editItem.py">
+                <input type="hidden" name="itemID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="removeSpell.py">
-                <input type="hidden" name="spellID" value="'''
+        print('''<td><form action="removeItem.py">
+                <input type="hidden" name="itemID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="addSpellToCharacter.py">
-                <input type="hidden" name="spellID" value="'''
+        print('''<td><form action="addItemToCharacter.py">
+                <input type="hidden" name="itemID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
@@ -64,8 +61,8 @@ else:
 print('<br/>')
 print('<br/>')
 print('<br/>')
-print('<form action="../spells.html">')
-print('<input type=submit value="Return to Spells Menu"/>')
+print('<form action="../items.html">')
+print('<input type=submit value="Return to Items Menu"/>')
 print('</form>')
 print('<br/>')
 print('<br/>')

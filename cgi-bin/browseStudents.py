@@ -8,50 +8,57 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Search Spells</title>')
+print('<title>D&D Database: Search Students</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Search Spells</h2>')
+print('<h2>Search Students</h2>')
 
 form = cgi.FieldStorage()
-name = form.getvalue('name')
-level = form.getvalue('level')
+firstName = form.getvalue('firstName')
+lastName = form.getvalue('lastName')
+year = form.getvalue('year')
 
-values = { "name": name, "level": level }
+values = { "firstName": firstName, "lastName": lastName, "year": year }
 
 cursor.execute('''
-        SELECT SpellID, Name, Level FROM Spell
-        WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
-        AND (:level = Level OR :level IS NULL)
+        SELECT Student.StudentID, Student.FirstName, Student.LastName, 
+        Student.Year, COUNT(Campaign.CampaignID), 
+        COUNT(Character.CharacterID) FROM Student, Campaign, Character
+        WHERE (LOWER(:firstName) = LOWER(Student.firstName) OR :firstName IS NULL)
+        AND (LOWER(:lastName) = LOWER(Student.lastName) OR :lastName IS NULL)
+        --AND (:year = Student.year OR :year IS NULL)
+        --AND (Student.StudentID = Character.StudentIDFK)
+        AND (Student.StudentID = Campaign.StudentIDFK)
+        GROUP BY Student.StudentID
         ''', values)
 
 records = cursor.fetchall()
 
 if len(records) > 0:
     print('<table>')
-    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Edit</th>'
-            + '<th>Delete</th><th>Add to Character</th></tr>')
+    print('<tr><th>Student ID</th><th>First Name</th><th>Last Name</th>'
+    +'<th>Year</th><th>Campaigns</th><th>Characters</th><th>View</th>'
+    + '<th>Edit</th><th>Remove</th></tr>')
     for record in records:
         print('<tr>')
+        print('<td>' + str(record[0]) + '</td>')
         print('<td>' + str(record[1]) + '</td>')
         print('<td>' + str(record[2]) + '</td>')
-        print('''<td><form action="viewSpell.py">
+        print('<td>' + str(record[3]) + '</td>')
+        print('<td>' + str(record[4]) + '</td>')
+        print('<td>' + str(record[5]) + '</td>')
+        print('''<td><form action="viewStudent.py"viewSpell.py>
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="editSpell.py">
+        print('''<td><form action="editStudent.py">
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="removeSpell.py">
-                <input type="hidden" name="spellID" value="'''
-                + str(record[0]) + '''">
-                <input type=submit name=empty value="">
-                </form></td>''')
-        print('''<td><form action="addSpellToCharacter.py">
+        print('''<td><form action="removeStudent.py">
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
@@ -64,8 +71,8 @@ else:
 print('<br/>')
 print('<br/>')
 print('<br/>')
-print('<form action="../spells.html">')
-print('<input type=submit value="Return to Spells Menu"/>')
+print('<form action="../students.html">')
+print('<input type=submit value="Return to Students Menu"/>')
 print('</form>')
 print('<br/>')
 print('<br/>')
