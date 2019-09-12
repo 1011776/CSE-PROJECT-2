@@ -40,17 +40,16 @@ if len(records) > 0:
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form>
+        print('''<td><form action="editSpell.py">
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form>
+        print('''<td><form action="removeSpell.py">
                 <input type="hidden" name="spellID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-
         print('</tr>')
     print('</table>')
 else:
