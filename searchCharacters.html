@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D&D Database: Search Characters</title>
+		<link rel="stylesheet" href="stylesheet.css">	
+	</head>
+	<body>
+		<h1>D&D Database</h1>
+		<h2>Campaigns Menu</h2>
+
+		<h3>Search Characters</h3>
+		Search will return all students if fields are left blank<br>
+		Blank fields will not act as filters<br><br>
+		<form name="input" action="cgi-bin/browseCharacters.py">
+			Character Name:<br>	
+			<input type="text" name="name"><br>
+			Campaign Name:<br>	
+			<input type="text" name="campaignName"><br>
+			Student ID:<br>	
+			<input type="number" name="studentID" 
+					min=1000000 max=1100000><br>
+			Class:<br>
+			<input type="text" name="class"><br>
+			<br>
+			<input type="submit" value="Search"><br>
+		</form>
+		<br><br>
+		<form action="index.html">
+			<input type="submit" value="Return to Homepage"/>
+		</form>
+
+		<div class="footer">
+		D&D Database is unofficial Fan Content permitted under
+		the Fan Content Policy. Not approved/endorsed by
+		Wizards. Portions of the materials used are property
+		of Wizards of the Coast. &#169;Wizards of the Coast LLC
+		</div>
+	</body>
+</html>
