@@ -10,6 +10,9 @@
 
 		<h3>Insert Student</h3>
 		<form action="cgi-bin/insertStudent.py">
+			Student ID:<br>	
+			<input type="number" name="studentID" 
+					min=1000000 max=1100000 required><br>
 			First Name:<br>
 			<input type="text" name="firstName" required><br>
 			Last Name:<br>
@@ -23,6 +26,9 @@
 		Search will return all students if fields are left blank<br>
 		Blank fields will not act as filters<br><br>
 		<form name="input" action="cgi-bin/browseStudents.py">
+			Student ID:<br>	
+			<input type="number" name="studentID" 
+					min=1000000 max=1100000><br>
 			First Name:<br>
 			<input type="text" name="firstName"><br>
 			Last Name:<br>

@@ -15,11 +15,12 @@ print('<h1>D&D Database</h1>')
 print('<h2>Search Students</h2>')
 
 form = cgi.FieldStorage()
+studentID = form.getvalue('studentID')
 firstName = form.getvalue('firstName')
 lastName = form.getvalue('lastName')
 year = form.getvalue('year')
 
-values = { "firstName": firstName, "lastName": lastName, "year": year }
+values = { "studentID": studentID, "firstName": firstName, "lastName": lastName, "year": year }
 
 cursor.execute('''
         SELECT Student.StudentID, Student.FirstName, Student.LastName, 
@@ -27,7 +28,9 @@ cursor.execute('''
         COUNT(Character.CharacterID) AS nCharacter FROM Student
         LEFT JOIN Campaign ON (Student.StudentID = Campaign.StudentIDFK)
         LEFT JOIN Character ON (Student.StudentID = Character.StudentIDFK)
-        WHERE (LOWER(:lastName) = LOWER(Student.lastName) OR :lastName IS NULL)
+        WHERE (:studentID = Student.StudentID OR :studentID IS NULL)
+        AND (LOWER(:firstName) = LOWER(Student.firstName) OR :firstName IS NULL)
+        AND (LOWER(:lastName) = LOWER(Student.lastName) OR :lastName IS NULL)
         AND (:year = Student.year OR :year IS NULL)
         GROUP BY Student.StudentID
         ''', values)
