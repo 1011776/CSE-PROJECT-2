@@ -36,7 +36,7 @@ records = cursor.fetchall()
 if len(records) > 0:
     print('<table>')
     print('<tr><th>Campaign Name</th><th>DM\'s Student ID</th><th>DM\'s Name</th>'
-        + '<th>Characters</th><th>Edit</th><th>Delete</th><th>Add Character to</th></tr>')
+        + '<th>Characters</th><th>Edit</th><th>Delete</th><th>Add Character To</th></tr>')
     for record in records:
         print('<tr>')
         print('<td>' + str(record[2]) + '</td>')

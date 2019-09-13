@@ -20,7 +20,7 @@ proficiencyID = form.getvalue('proficiencyID')
 values = { "proficiencyID": proficiencyID }
 
 print('<form name="input" action="insertCharacterProficiency.py">')
-print('<input type="hidden" value="' + str(proficiencyID) + '"<br>')
+print('<input type="hidden" name="proficiencyID" value="' + str(proficiencyID) + '"<br>')
 print('Character ID:<br>')
 print('<input type="number" name="characterID"><br><br>')
 print('<input type="submit" value="Add to Character"><br>')

@@ -8,31 +8,31 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Add Item to Character</title>')
+print('<title>D&D Database: Add Character to Campaign</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Add Item to Character</h2>')
+print('<h2>Add Character to Campaign</h2>')
 
 form = cgi.FieldStorage()
-itemID = form.getvalue('itemID')
+campaignID = form.getvalue('campaignID')
+characterID = form.getvalue('characterID')
 
-values = { "itemID": itemID }
+values = { "campaignID": campaignID, "characterID": characterID }
 
-print('<form name="input" action="insertCharacterItem.py">')
-print('<input type="hidden" name="itemID" value="' + itemID + '"<br>')
-print('Character ID:<br>')
-print('<input type="number" name="characterID"><br><br>')
-print('Quantity:<br>')
-print('<input type="number" name="quantity"><br><br>')
-print('<input type="submit" value="Add to Character"><br>')
-print('</form>')
+cursor.execute('''
+        UPDATE Character
+        SET CampaignIDFK = :campaignID
+        WHERE CharacterID = :characterID
+        ''', values)
+
+print('Character added to campaign')
 
 print('<br>')
 print('<br>')
 print('<br>')
-print('<form action="../items.html">')
-print('<input type=submit value="Return to Items Menu"/>')
+print('<form action="../campaigns.html">')
+print('<input type=submit value="Return to Campaign Menu"/>')
 print('</form>')
 print('<br>')
 print('<br>')

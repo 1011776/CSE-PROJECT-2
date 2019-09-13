@@ -20,7 +20,7 @@ spellID = form.getvalue('spellID')
 values = { "spellID": spellID }
 
 print('<form name="input" action="insertCharacterSpell.py">')
-print('<input type="hidden" value="' + spellID + '"<br>')
+print('<input type="hidden" name="spellID" value="' + spellID + '"<br>')
 print('Character ID:<br>')
 print('<input type="number" name="characterID"><br><br>')
 print('<input type="submit" value="Add to Character"><br>')
