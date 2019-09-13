@@ -8,7 +8,7 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Add item to character</title>')
+print('<title>D&D Database: Add Item to Character</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')

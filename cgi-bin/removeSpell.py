@@ -20,6 +20,11 @@ spellID = form.getvalue('spellID')
 values = { "spellID": spellID }
 
 cursor.execute('''
+        DELETE FROM CharacterSpell
+        WHERE :spellID = SpellIDFK
+        ''', values)
+
+cursor.execute('''
         DELETE FROM Spell
         WHERE :spellID = SpellID
         ''', values)

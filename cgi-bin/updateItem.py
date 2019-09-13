@@ -15,11 +15,11 @@ print('<h1>D&D Database</h1>')
 print('<h2>Edit Item</h2>')
 
 form = cgi.FieldStorage()
-spellID = form.getvalue('itemID')
+itemID = form.getvalue('itemID')
 name = form.getvalue('name')
 description = form.getvalue('description')
 
-values = { "itemID": spellID, "name": name, 
+values = { "itemID": itemID, "name": name, 
         "description": description }
 
 cursor.execute('''

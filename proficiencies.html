@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D&D Database: Proficiencies Menu</title>
+		<link rel="stylesheet" href="stylesheet.css">	
+	</head>
+	<body>
+		<h1>D&D Database</h1>
+		<h2>Proficiencies Menu</h2>
+
+		<h3>Insert Proficiencies</h3>
+		<form action="cgi-bin/insertProficiency.py">
+			Name:<br>
+			<input type="text" name="name" required><br>
+
+			Attribute:<br>
+			<select name="attribute">
+				<option disabled selected value> -- select an option -- </option>
+				<option value="Str">Strength</option>
+				<option value="Dex">Dexterity</option>
+				<option value="Con">Constitution</option>
+				<option value="Int">Intellegence</option>
+				<option value="Wis">Wisdom</option>
+				<option value="Cha">Charisma</option>
+			</select> 
+			<br><br>
+			<input type="submit" value="Insert Proficiency"><br>
+		</form>
+		<h3>Search Proficiencies</h3>
+		Search will return all items if fields are blank.<br>
+		Blank fields will not act as filters.<br><br>
+		<form name="input" action="cgi-bin/browseProficiencies.py">
+			Name:<br>
+			<input type="text" name="name"><br>
+			Attribute:<br>
+			<select name="attribute">
+				<option disabled selected value> -- select an option -- </option>
+				<option value="Str">Strength</option>
+				<option value="Dex">Dexterity</option>
+				<option value="Con">Constitution</option>
+				<option value="Int">Intellegence</option>
+				<option value="Wis">Wisdom</option>
+				<option value="Cha">Charisma</option>
+			</select><br><br>
+			<input type="submit" value="Search"><br>
+		</form>
+		<br><br>
+		<form action="index.html">
+			<input type="submit" value="Return to Homepage"/>
+		</form>
+
+		<div class="footer">
+		D&D Database is unofficial Fan Content permitted under
+		the Fan Content Policy. Not approved/endorsed by
+		Wizards. Portions of the materials used are property
+		of Wizards of the Coast. &#169;Wizards of the Coast LLC
+		</div>
+	</body>
+</html>

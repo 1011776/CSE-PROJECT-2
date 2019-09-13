@@ -8,29 +8,30 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
-print('<title>D&D Database: Add Spell to Character</title>')
+print('<title>D&D Database: Add Proficiency to Character</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
 print('<h1>D&D Database</h1>')
-print('<h2>Add Spell to Character</h2>')
+print('<h2>Add Proficiency to Character</h2>')
 
 form = cgi.FieldStorage()
-spellID = form.getvalue('spellID')
+proficiencyID = form.getvalue('proficiencyID')
+characterID = form.getvalue('characterID')
 
-values = { "spellID": spellID }
+values = { "proficiencyID": proficiencyID, "characterID": characterID }
 
-print('<form name="input" action="insertCharacterSpell.py">')
-print('<input type="hidden" value="' + spellID + '"<br>')
-print('Character ID:<br>')
-print('<input type="number" name="characterID"><br><br>')
-print('<input type="submit" value="Add to Character"><br>')
-print('</form>')
+cursor.execute('''
+        INSERT INTO CharacterProficiency(CharacterIDFK, ProficiencyIDFK) 
+        VALUES (:characterID, :proficiencyID)
+        ''', values)
+
+print('Proficiency added to character')
 
 print('<br>')
 print('<br>')
 print('<br>')
-print('<form action="../spells.html">')
-print('<input type=submit value="Return to Spells Menu"/>')
+print('<form action="../proficiencies.html">')
+print('<input type=submit value="Return to Proficiencies Menu"/>')
 print('</form>')
 print('<br>')
 print('<br>')
