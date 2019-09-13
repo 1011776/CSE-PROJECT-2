@@ -9,13 +9,13 @@
 		<h2>Students Menu</h2>
 
 		<h3>Insert Student</h3>
-		<form action="cgi-bin/insertSpell.py">
+		<form action="cgi-bin/insertStudent.py">
 			First Name:<br>
-			<input type="text" name="firstName"><br>
+			<input type="text" name="firstName" required><br>
 			Last Name:<br>
-			<input type="text" name="lastName"><br>
+			<input type="text" name="lastName" required><br>
 			Year:<br>
-			<input type="number" name="year" min="5" max="12"><br><br>
+			<input type="number" name="year" min="5" max="12" required><br><br>
 			<input type="submit" value="Insert Student"><br>
 		</form>
 

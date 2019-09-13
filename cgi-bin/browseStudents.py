@@ -23,13 +23,12 @@ values = { "firstName": firstName, "lastName": lastName, "year": year }
 
 cursor.execute('''
         SELECT Student.StudentID, Student.FirstName, Student.LastName, 
-        Student.Year, COUNT(Campaign.CampaignID), 
-        COUNT(Character.CharacterID) FROM Student, Campaign, Character
-        WHERE (LOWER(:firstName) = LOWER(Student.firstName) OR :firstName IS NULL)
-        AND (LOWER(:lastName) = LOWER(Student.lastName) OR :lastName IS NULL)
-        --AND (:year = Student.year OR :year IS NULL)
-        --AND (Student.StudentID = Character.StudentIDFK)
-        AND (Student.StudentID = Campaign.StudentIDFK)
+        Student.Year, COUNT(Campaign.CampaignID) AS nCampaign,
+        COUNT(Character.CharacterID) AS nCharacter FROM Student
+        LEFT JOIN Campaign ON (Student.StudentID = Campaign.StudentIDFK)
+        LEFT JOIN Character ON (Student.StudentID = Character.StudentIDFK)
+        WHERE (LOWER(:lastName) = LOWER(Student.lastName) OR :lastName IS NULL)
+        AND (:year = Student.year OR :year IS NULL)
         GROUP BY Student.StudentID
         ''', values)
 

@@ -34,8 +34,8 @@ INSERT INTO Student (StudentID, FirstName, LastName, Year) VALUES
 print('Insert sample campaigns<br>')
 cursor.execute('''
 INSERT INTO Campaign (StudentIDFK, CampaignName) VALUES
-("Lost Mine of Phandelver",     1028983),
-("Hoard of the Dragon Queen",   1088611)
+(1028983,   "Lost Mine of Phandelver"),
+(1088611,   "Hoard of the Dragon Queen")
 ''')
 
 print('Insert sample characters<br>')
