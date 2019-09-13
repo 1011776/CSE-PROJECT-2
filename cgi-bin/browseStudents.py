@@ -39,14 +39,13 @@ records = cursor.fetchall()
 
 if len(records) > 0:
     print('<table>')
-    print('<tr><th>Student ID</th><th>First Name</th><th>Last Name</th>'
+    print('<tr><th>Student ID</th><th>Name</th>'
     +'<th>Year</th><th>Campaigns</th><th>Characters</th>'
     + '<th>Edit</th><th>Remove</th></tr>')
     for record in records:
         print('<tr>')
         print('<td>' + str(record[0]) + '</td>')
-        print('<td>' + str(record[1]) + '</td>')
-        print('<td>' + str(record[2]) + '</td>')
+        print('<td>' + str(record[1]) + ' ' + str(record[2]) + '</td>')
         print('<td>' + str(record[3]) + '</td>')
         print('<td>' + str(record[4]) + '</td>')
         print('<td>' + str(record[5]) + '</td>')
