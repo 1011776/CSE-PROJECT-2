@@ -22,6 +22,7 @@ values = { "name": name }
 cursor.execute('''
         SELECT ItemID, Name FROM Item
         WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
+        ORDER BY Name
         ''', values)
 
 records = cursor.fetchall()

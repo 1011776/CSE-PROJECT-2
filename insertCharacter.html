@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>D&D Database: Insert Character</title>
+		<link rel="stylesheet" href="stylesheet.css">	
+	</head>
+	<body>
+		<h1>D&D Database</h1>
+		<h2>Character Insertion Form</h2>
+		<form name="input" action="cgi-bin/insertCharacter.py">
+			Character Name:<br>	
+			<input type="text" name="name" required><br>
+			Student ID:<br>	
+			<input type="number" name="studentID" 
+					min=1000000 max=1100000 required><br>
+			Class:<br>
+			<input type="text" name="class" required><br>
+			Background:<br>
+			<input type="text" name="background"><br>
+			Race:<br>
+			<input type="text" name="race"><br>
+			Alignment:<br>
+			<input type="text" name="alignment"><br>
+			Experience Points:<br>
+			<input type="number" name="expPoints" min="0" max="355000"><br>
+			Strength:<br>
+			Value: 
+			<input type="number" name="str" min="0" max="20"><br>
+			Saving Throw: 
+			<input type="checkbox" name="strSave" value="1"><br>
+			Dexterity:<br>
+			Value: 
+			<input type="number" name="dex" min="0" max="20"><br>
+			Saving Throw: 
+			<input type="checkbox" name="dexSave" value="1"><br>
+			Constitution:<br>
+			Value: 
+			<input type="number" name="con" min="0" max="20"><br>
+			Saving Throw: 
+			<input type="checkbox" name="conSave" value="1"><br>
+			Intellegence:<br>
+			Value: 
+			<input type="number" name="int" min="0" max="20"><br>
+			Saving Throw: 
+			<input type="checkbox" name="intSave" value="1"><br>
+			Wisdom:<br>
+			Value: 
+			<input type="number" name="wis" min="0" max="20"><br>
+			Saving Throw: 
+			<input type="checkbox" name="wisSave" value="1"><br>
+			Charisma:<br>
+			Value: 
+			<input type="number" name="cha" min="0" max="20"><br>
+			Saving Throw: 
+			<input type="checkbox" name="chaSave" value="1"><br>
+			Inspiration: 
+			<input type="checkbox" name="inspiration" value="1"><br>
+			Proficiency Bonus:<br>
+			<input type="number" name="profBonus" min="2" max="6"><br>
+			Gold:<br>
+			<input type="number" name="gold" min="0"><br>
+			HitPointMax:<br>
+			<input type="number" name="hitPointMax" min="0"><br>
+			Personality Traits:<br>
+			<textarea rows="4", cols="50" name="ptraits"></textarea><br>
+			Ideals:<br>
+			<textarea rows="4", cols="50" name="ideals"></textarea><br>
+			Bonds:<br>
+			<textarea rows="4", cols="50" name="bonds"></textarea><br>
+			Flaws:<br>
+			<textarea rows="4", cols="50" name="flaws"></textarea><br>
+			Other Info:<br>
+			<textarea rows="4", cols="50" name="otherInfo"></textarea><br>
+			<br>
+			<input type="Submit" value="Insert Character"><br>
+		</form>
+		<br><br>
+		<form action="index.html">
+			<input type="submit" value="Return to Homepage"/>
+		</form>
+
+		<div class="footer">
+		D&D Database is unofficial Fan Content permitted under
+		the Fan Content Policy. Not approved/endorsed by
+		Wizards. Portions of the materials used are property
+		of Wizards of the Coast. &#169;Wizards of the Coast LLC
+		</div>
+	</body>
+</html>

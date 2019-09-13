@@ -24,6 +24,7 @@ cursor.execute('''
         SELECT proficiencyID, Name, Attribute FROM Proficiency
         WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
         AND (:attribute = Attribute OR :attribute IS NULL)
+        ORDER BY Attribute, Name
         ''', values)
 
 records = cursor.fetchall()

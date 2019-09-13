@@ -33,6 +33,7 @@ cursor.execute('''
         AND (LOWER(:lastName) = LOWER(Student.lastName) OR :lastName IS NULL)
         AND (:year = Student.year OR :year IS NULL)
         GROUP BY Student.StudentID
+        ORDER BY Student.LastName
         ''', values)
 
 records = cursor.fetchall()

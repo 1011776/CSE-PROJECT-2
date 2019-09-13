@@ -24,6 +24,7 @@ cursor.execute('''
         SELECT SpellID, Name, Level FROM Spell
         WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
         AND (:level = Level OR :level IS NULL)
+        ORDER BY Level, Name
         ''', values)
 
 records = cursor.fetchall()

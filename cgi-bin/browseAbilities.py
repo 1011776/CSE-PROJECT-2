@@ -22,6 +22,7 @@ values = { "name": name }
 cursor.execute('''
         SELECT AbilityID, Name FROM Ability
         WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
+        ORDER BY Name
         ''', values)
 
 records = cursor.fetchall()

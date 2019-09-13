@@ -29,6 +29,7 @@ cursor.execute('''
         AND (LOWER(:name) = LOWER(Campaign.CampaignName) OR :name IS NULL)
         AND (Campaign.StudentIDFK = Student.StudentID)
         GROUP BY Campaign.CampaignID
+        ORDER BY Campaign.CampaignName
         ''', values)
 
 records = cursor.fetchall()
