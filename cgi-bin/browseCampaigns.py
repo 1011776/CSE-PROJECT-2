@@ -43,18 +43,18 @@ if len(records) > 0:
         print('<td>' + str(record[1]) + '</td>')
         print('<td>' + str(record[3]) + ' ' + str(record[4]) + '</td>')
         print('<td>' + str(record[5]) + '</td>')
-        print('''<td><form action="editProficiency.py">
-                <input type="hidden" name="proficiencyID" value="'''
+        print('''<td><form action="editCampaign.py">
+                <input type="hidden" name="campaignID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="removeProficiency.py">
-                <input type="hidden" name="proficiencyID" value="'''
+        print('''<td><form action="removeCampaign.py">
+                <input type="hidden" name="campaignID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
-        print('''<td><form action="addProficiencyToCharacter.py">
-                <input type="hidden" name="proficincyID" value="'''
+        print('''<td><form action="addCharacterToCampaign.py">
+                <input type="hidden" name="campaignID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
