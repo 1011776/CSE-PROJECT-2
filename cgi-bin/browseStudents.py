@@ -37,7 +37,7 @@ records = cursor.fetchall()
 if len(records) > 0:
     print('<table>')
     print('<tr><th>Student ID</th><th>First Name</th><th>Last Name</th>'
-    +'<th>Year</th><th>Campaigns</th><th>Characters</th><th>View</th>'
+    +'<th>Year</th><th>Campaigns</th><th>Characters</th>'
     + '<th>Edit</th><th>Remove</th></tr>')
     for record in records:
         print('<tr>')
@@ -47,18 +47,13 @@ if len(records) > 0:
         print('<td>' + str(record[3]) + '</td>')
         print('<td>' + str(record[4]) + '</td>')
         print('<td>' + str(record[5]) + '</td>')
-        print('''<td><form action="viewStudent.py"viewSpell.py>
-                <input type="hidden" name="spellID" value="'''
-                + str(record[0]) + '''">
-                <input type=submit name=empty value="">
-                </form></td>''')
         print('''<td><form action="editStudent.py">
-                <input type="hidden" name="spellID" value="'''
+                <input type="hidden" name="studentID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
         print('''<td><form action="removeStudent.py">
-                <input type="hidden" name="spellID" value="'''
+                <input type="hidden" name="studentID" value="'''
                 + str(record[0]) + '''">
                 <input type=submit name=empty value="">
                 </form></td>''')
