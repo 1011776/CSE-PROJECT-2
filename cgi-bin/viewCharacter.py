@@ -8,6 +8,11 @@ mydb = 'dnd.db'
 conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
+form = cgi.FieldStorage()
+name = form.getvalue('characterID')
+
+values = { "characterID": characterID }
+
 print('<title>D&D Database: View Ability</title>')
 print('<link rel="stylesheet" href="../stylesheet.css">')
 
@@ -24,6 +29,33 @@ print('This page will also allow user to delete Abilities, spells, proficiencies
 
 print('<h3>Ability Scores</h3>')
 print('<h3>Spells</h3>')
+cursor.execute('''
+        SELECT SpellID, Name, Level FROM Spell
+        WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
+        AND (:level = Level OR :level IS NULL)
+        ORDER BY Level, Name
+        ''', values)
+if len(records) > 0:
+    print('<table>')
+    print('<tr><th>Name</th><th>Level</th><th>View</th><th>Remove From Character</th></tr>')
+    for record in records:
+        print('<tr>')
+        print('<td>' + str(record[1]) + '</td>')
+        print('<td>' + str(record[2]) + '</td>')
+        print('''<td><form action="viewSpell.py">
+                <input type="hidden" name="spellID" value="'''
+                + str(record[0]) + '''">
+                <input type=submit name=empty value="">
+                </form></td>''')
+        print('''<td><form action="removeSpellFromCharacter.py">
+                <input type="hidden" name="spellID" value="'''
+                + str(record[0]) + '''">
+                <input type=submit name=empty value="">
+                </form></td>''')
+        print('</tr>')
+    print('</table>')
+else:
+    print('No records found')
 print('<h3>Proficiencies</h3>')
 print('<h3>Items</h3>')
 print('<h3>Abilities</h3>')
