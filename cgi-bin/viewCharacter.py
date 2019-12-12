@@ -9,7 +9,7 @@ conn = sqlite3.connect(mydb)
 cursor = conn.cursor()
 
 form = cgi.FieldStorage()
-name = form.getvalue('characterID')
+characterID = form.getvalue('characterID')
 
 values = { "characterID": characterID }
 
@@ -30,11 +30,13 @@ print('This page will also allow user to delete Abilities, spells, proficiencies
 print('<h3>Ability Scores</h3>')
 print('<h3>Spells</h3>')
 cursor.execute('''
-        SELECT SpellID, Name, Level FROM Spell
-        WHERE (LOWER(:name) = LOWER(Name) OR :name IS NULL)
-        AND (:level = Level OR :level IS NULL)
+        SELECT Spell.SpellID, Spell.Name, Spell.Level 
+        FROM Spell, CharacterSpell
+        WHERE :characterID = CharacterSpell.CharacterIDFK
+        AND Spell.SpellID = CharacterSpell.SpellIDFK
         ORDER BY Level, Name
         ''', values)
+records = cursor.fetchall()
 if len(records) > 0:
     print('<table>')
     print('<tr><th>Name</th><th>Level</th><th>View</th><th>Remove From Character</th></tr>')
